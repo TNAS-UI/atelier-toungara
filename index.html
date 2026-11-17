@@ -3,59 +3,296 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101b2d">
-<meta name="description" content="ATELIER TOUNGARA : découvrez des projets numériques utiles, des outils prêts à l’emploi et des ressources pour apprendre, créer et entreprendre.">
-<title>ATELIER TOUNGARA — Des projets qui deviennent des solutions</title>
+<meta name="theme-color" content="#f4f1e9">
+<meta name="description" content="ATELIER TOUNGARA — des projets numériques imaginés, construits et partagés avec soin.">
+<title>ATELIER TOUNGARA — Des idées qui prennent forme</title>
 <style>
-:root{--ink:#101b2d;--muted:#64748b;--paper:#f5f7fb;--white:#fff;--line:#e5eaf1;--blue:#2859e8;--cyan:#a9e6df;--lime:#d7f36a;--radius:22px;--shadow:0 18px 55px rgba(16,27,45,.09)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}.wrap{width:min(1160px,calc(100% - 44px));margin:auto}.topbar{background:#0b1423;color:#cbd5e1;font-size:12px}.topbar .wrap{display:flex;justify-content:space-between;padding:10px 0;gap:12px}.topbar strong{color:white}.nav{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.navin{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.7px;font-size:21px}.mark{width:35px;height:35px;border-radius:11px;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-weight:900}.links{display:flex;gap:30px;color:#536176;font-size:13px;font-weight:650}.links a:hover{color:var(--blue)}.navcta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:12px 19px;font-weight:750;font-size:13px;cursor:pointer;transition:.2s}.navcta,.btn.primary{background:var(--blue);color:white;box-shadow:0 8px 20px rgba(40,89,232,.2)}.navcta:hover,.btn.primary:hover{transform:translateY(-2px);background:#1949d4}.btn.dark{background:var(--ink);color:white}.btn.light{background:white;color:var(--ink);border:1px solid var(--line)}.hero{background:var(--ink);color:white;position:relative;overflow:hidden;padding:88px 0 76px}.hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;border:1px solid rgba(255,255,255,.09);right:-90px;top:-260px;box-shadow:0 0 0 65px rgba(255,255,255,.025),0 0 0 130px rgba(255,255,255,.02)}.hero:after{content:"";position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(40,89,232,.42),transparent 70%);right:12%;bottom:-190px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center;position:relative;z-index:1}.eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--lime);font-size:11px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(215,243,106,.12)}h1{font-size:clamp(42px,5.4vw,68px);line-height:1.04;letter-spacing:-3.4px;margin:22px 0 20px;max-width:650px}h1 em{font-style:normal;color:var(--lime)}.hero p{color:#bdc8d8;font-size:16px;max-width:540px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.hero .btn.light{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:white}.proof{display:flex;gap:22px;margin-top:38px;color:#aebacc;font-size:11px}.proof b{color:white;font-size:15px;display:block}.showcase{position:relative;min-height:370px}.dash{position:absolute;inset:14px 0 0 15px;background:#fff;color:var(--ink);border-radius:20px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.28);transform:rotate(2deg)}.dashhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:11px;font-weight:800}.live{color:#16866d;background:#e7f7f1;padding:5px 9px;border-radius:20px;font-size:9px}.dashlabel{color:var(--muted);font-size:10px;margin-top:21px}.dashbig{font-size:32px;font-weight:850;letter-spacing:-1.5px}.bars{display:flex;align-items:end;gap:10px;height:100px;margin:20px 0 12px}.bars i{display:block;flex:1;border-radius:7px 7px 2px 2px;background:#dce5ff}.bars i:nth-child(2n){background:#2859e8}.minirow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:#f4f6fa;border-radius:12px;padding:12px}.mini small{color:var(--muted);font-size:9px}.mini b{display:block;font-size:17px}.floatcard{position:absolute;background:var(--lime);color:var(--ink);border-radius:15px;padding:14px 17px;right:-18px;bottom:4px;box-shadow:var(--shadow);transform:rotate(-4deg)}.floatcard small{font-size:9px;font-weight:800;letter-spacing:1px}.floatcard b{display:block;font-size:20px}.section{padding:78px 0}.section.white{background:white}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}.kicker{font-size:11px;color:var(--blue);font-weight:850;letter-spacing:1.5px;text-transform:uppercase}.section h2{font-size:clamp(30px,3.5vw,42px);line-height:1.12;letter-spacing:-1.7px;margin:9px 0 0}.sub{color:var(--muted);max-width:470px;margin:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;background:white;margin-top:-1px}.stat{padding:23px 25px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;font-size:25px;letter-spacing:-1px}.stat span{font-size:11px;color:var(--muted)}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:25px 0}.search{flex:1;min-width:220px;position:relative}.search input{width:100%;border:1px solid var(--line);border-radius:999px;padding:13px 18px 13px 43px;background:white;outline:none}.search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(40,89,232,.1)}.search span{position:absolute;left:16px;top:10px;color:var(--muted);font-size:18px}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:11px 16px;color:#536176;font-size:12px;font-weight:700;cursor:pointer}.filter.active{background:var(--ink);border-color:var(--ink);color:white}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{background:white;border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}.project:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.thumb{height:180px;padding:20px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.thumb.blue{background:#e9efff}.thumb.mint{background:#e2f4ef}.thumb.sand{background:#f5eddf}.thumb.ink{background:#17253b}.thumb .tagtop{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.8);border-radius:20px;padding:5px 9px;font-size:9px;font-weight:850}.mock{width:78%;height:112px;background:white;border-radius:10px;box-shadow:0 12px 25px rgba(20,40,80,.12);padding:13px;transform:rotate(-3deg)}.mockline{height:6px;width:45%;background:#dce5f7;border-radius:5px;margin-bottom:9px}.mockgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.mockgrid i{height:27px;background:#eef2fa;border-radius:5px}.mockgrid i:nth-child(2){background:#cbd8ff}.mockchart{height:35px;margin-top:8px;display:flex;align-items:end;gap:5px}.mockchart i{flex:1;background:#2859e8;border-radius:3px 3px 0 0}.mockchart i:nth-child(1){height:35%}.mockchart i:nth-child(2){height:60%}.mockchart i:nth-child(3){height:45%}.mockchart i:nth-child(4){height:90%}.mockchart i:nth-child(5){height:70%}.projectbody{padding:20px;display:flex;flex-direction:column;flex:1}.meta{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--muted)}.pill{background:#edf2ff;color:#3159bd;padding:5px 9px;border-radius:20px;font-weight:800}.pill.free{background:#e6f6ef;color:#167455}.project h3{font-size:18px;letter-spacing:-.5px;margin:15px 0 7px}.project p{color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 18px}.projectfoot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:15px;border-top:1px solid #f0f2f6}.format{font-size:10px;color:#64748b;font-weight:750}.more{font-size:12px;color:var(--blue);font-weight:800}.empty{grid-column:1/-1;text-align:center;padding:45px;color:var(--muted);background:white;border:1px dashed var(--line);border-radius:16px;display:none}.howgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}.how{padding:25px;border:1px solid var(--line);border-radius:18px;background:white}.num{width:34px;height:34px;border-radius:11px;background:#edf2ff;color:var(--blue);display:grid;place-items:center;font-size:12px;font-weight:900}.how h3{font-size:16px;margin:18px 0 7px}.how p{font-size:12px;color:var(--muted);margin:0}.creator{background:var(--lime);border-radius:25px;padding:42px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}.creator h2{font-size:34px;line-height:1.1;letter-spacing:-1.5px;margin:0 0 12px;max-width:600px}.creator p{margin:0;color:#4c5928;max-width:580px;font-size:13px}.creator .btn{background:var(--ink);color:white;white-space:nowrap}.footer{background:#0b1423;color:#d8e0ec;padding:48px 0 25px}.footgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:35px}.footer p{color:#9aa8ba;font-size:12px;max-width:330px}.footer h4{font-size:12px;color:white;margin:0 0 14px}.footer a{display:block;color:#9aa8ba;font-size:12px;margin:8px 0}.footer a:hover{color:white}.copyright{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;justify-content:space-between;color:#8795a8;font-size:10px}.notice{font-size:11px;color:var(--muted);margin-top:17px}
-@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:28px}.showcase{max-width:500px;width:100%;margin:0 auto;min-height:330px}.cards{grid-template-columns:repeat(2,1fr)}.links{gap:14px}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.creator{grid-template-columns:1fr}.creator .btn{justify-self:start}}
-@media(max-width:580px){.wrap{width:min(100% - 30px,1160px)}.topbar .wrap span:last-child{display:none}.navin{height:66px}.links{display:none}.navcta{padding:10px 13px;font-size:11px}.hero{padding:65px 0 48px}h1{letter-spacing:-2px}.hero p{font-size:14px}.proof{gap:15px}.showcase{min-height:285px}.dash{padding:16px}.floatcard{right:-4px}.section{padding:58px 0}.sectionhead{display:block}.sub{margin-top:12px}.cards{grid-template-columns:1fr}.thumb{height:165px}.howgrid{grid-template-columns:1fr}.creator{padding:28px}.creator h2{font-size:28px}.footgrid{grid-template-columns:1fr 1fr}.footgrid>div:first-child{grid-column:1/-1}.copyright{display:block}.copyright span{display:block;margin-top:7px}}
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{
+ --paper:#f4f1e9;--white:#fffefa;--ink:#202820;--muted:#73796f;--line:#deded3;
+ --green:#254f3d;--green2:#dce8dc;--orange:#d76b43;--yellow:#e7c96a;
+ --radius:20px;--shadow:0 18px 45px rgba(31,44,34,.09);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+.announcement{background:var(--green);color:#f8f5eb;font:10px 'DM Mono',monospace;letter-spacing:.07em}
+.announcement .wrap{display:flex;justify-content:space-between;gap:15px;padding:9px 0}
+.announcement b{color:var(--yellow);font-weight:500}
+header{position:sticky;top:0;z-index:20;background:rgba(244,241,233,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(32,40,32,.1)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font:800 15px Manrope,sans-serif;letter-spacing:-.04em}
+.brandmark{height:38px;width:38px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:var(--yellow);font:700 13px 'DM Mono',monospace;letter-spacing:-.08em}
+.brand small{display:block;font:9px 'DM Mono',monospace;letter-spacing:.14em;color:var(--muted);margin-top:1px}
+.navlinks{display:flex;gap:30px;align-items:center;color:#555e53;font-size:12px;font-weight:600}
+.navlinks a{position:relative}.navlinks a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--orange);transition:width .25s}
+.navlinks a:hover:after{width:100%}
+.navbutton,.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--green);border-radius:999px;padding:12px 18px;font-size:12px;font-weight:700;transition:transform .2s,background .2s,color .2s}
+.navbutton,.button.dark{background:var(--green);color:#fffefa}
+.navbutton:hover,.button:hover{transform:translateY(-2px)}
+.button.outline{background:transparent;color:var(--ink);border-color:#aeb5a8}
+.button .arrow{font-size:16px;line-height:0;transition:transform .2s}.button:hover .arrow{transform:translateX(4px)}
+.hero{padding:86px 0 76px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:20px;width:480px;height:480px;border:1px solid #d8d9cd;border-radius:50%;box-shadow:0 0 0 50px rgba(37,79,61,.025),0 0 0 100px rgba(37,79,61,.02);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font:10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow:before{content:"";width:26px;height:1px;background:var(--orange)}
+h1,h2,h3,p{margin-top:0}
+h1{font:600 clamp(44px,5.7vw,72px)/1.03 Manrope,sans-serif;letter-spacing:-.075em;max-width:670px;margin:22px 0}
+h1 em{font-style:normal;color:var(--orange)}
+.hero-copy{max-width:500px;color:#626b60;font-size:16px;line-height:1.85}
+.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+.hero-note{margin-top:38px;display:flex;gap:13px;align-items:center;color:var(--muted);font-size:11px}
+.avatar-stack{display:flex;padding-left:5px}.avatar-stack span{width:26px;height:26px;border:2px solid var(--paper);border-radius:50%;margin-left:-6px;background:#d7a88e;display:grid;place-items:center;font-size:9px;color:#fff}.avatar-stack span:nth-child(2){background:#68846d}.avatar-stack span:nth-child(3){background:#c48b50}
+.artboard{position:relative;min-height:390px;display:flex;align-items:center;justify-content:center}
+.paper-card{position:relative;width:min(100%,420px);background:var(--white);border:1px solid #e4e1d7;border-radius:8px;padding:24px;box-shadow:0 24px 55px rgba(42,51,40,.12);transform:rotate(2deg);animation:float 7s ease-in-out infinite}
+.paper-card:before{content:"";position:absolute;inset:9px -9px -9px 9px;border:1px solid #c9cfc2;border-radius:8px;z-index:-1}
+.card-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:1px solid var(--line);font:9px 'DM Mono',monospace;letter-spacing:.1em;color:var(--muted)}
+.stamp{background:var(--green2);color:var(--green);padding:5px 8px;border-radius:3px;font-size:8px}
+.paper-card h3{font:600 25px/1.1 Manrope,sans-serif;letter-spacing:-.06em;margin:24px 0 6px}
+.paper-card .small{font-size:11px;color:var(--muted)}
+.chart{height:105px;display:flex;align-items:end;gap:9px;border-bottom:1px solid var(--line);padding:0 7px 0;margin:25px 0 18px}
+.chart i{display:block;flex:1;background:#cdd9c9;border-radius:3px 3px 0 0;transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.7,.2,1) both}
+.chart i:nth-child(1){height:30%;animation-delay:.1s}.chart i:nth-child(2){height:54%;animation-delay:.2s}.chart i:nth-child(3){height:42%;animation-delay:.3s}.chart i:nth-child(4){height:78%;animation-delay:.4s}.chart i:nth-child(5){height:63%;animation-delay:.5s}.chart i:nth-child(6){height:91%;background:var(--orange);animation-delay:.6s}
+.paper-bottom{display:flex;justify-content:space-between;gap:10px}
+.paper-bottom div{background:#f2f1e9;padding:10px 12px;flex:1}
+.paper-bottom small{display:block;color:var(--muted);font:8px 'DM Mono',monospace;letter-spacing:.08em}
+.paper-bottom b{font:600 13px Manrope,sans-serif}
+.side-note{position:absolute;right:-5px;bottom:28px;background:var(--yellow);padding:14px 17px;box-shadow:0 12px 25px #6d5a2225;transform:rotate(-5deg);font:10px 'DM Mono',monospace;animation:note 5s ease-in-out infinite}
+.side-note b{display:block;font:700 17px Manrope,sans-serif;letter-spacing:-.05em}
+@keyframes float{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+@keyframes note{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-7px) rotate(-3deg)}}
+@keyframes grow{from{transform:scaleY(.05);opacity:.4}to{transform:scaleY(1);opacity:1}}
+.intro-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0}
+.strip-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.strip-inner p{margin:0;color:var(--muted);font-size:11px}.strip-inner strong{font:600 12px Manrope,sans-serif}
+.section{padding:82px 0}.section.light{background:var(--white)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.kicker{color:var(--orange);font:10px 'DM Mono',monospace;letter-spacing:.15em;text-transform:uppercase}
+h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;margin:10px 0 0}
+.section-desc{max-width:430px;color:var(--muted);font-size:13px;line-height:1.8;margin:0}
+.catalog-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:27px 0 22px}
+.searchbox{flex:1;min-width:220px;position:relative}
+.searchbox span{position:absolute;left:15px;top:10px;color:var(--muted);font-size:18px}
+.searchbox input{width:100%;border:1px solid var(--line);border-radius:999px;padding:12px 16px 12px 42px;background:transparent;outline:none;font-size:12px}
+.searchbox input:focus{border-color:var(--green);box-shadow:0 0 0 3px #254f3d12}
+.filter{border:1px solid var(--line);background:transparent;border-radius:999px;padding:11px 15px;color:#626b60;font-size:11px;cursor:pointer;transition:.2s}
+.filter:hover{border-color:var(--green);color:var(--green)}.filter.active{background:var(--green);color:white;border-color:var(--green)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.project{background:var(--white);border:1px solid #e7e5dc;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s}
+.project:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d1d7cc}
+.project-visual{height:174px;padding:20px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.project-visual.sage{background:#e5ebe0}.project-visual.clay{background:#f0e2d8}.project-visual.blue{background:#e4e9ed}
+.visual-label{position:absolute;left:14px;top:14px;font:9px 'DM Mono',monospace;letter-spacing:.08em;color:#59665b}
+.sheet{width:76%;height:105px;background:#fffefa;border:1px solid #e1e2d9;border-radius:4px;box-shadow:0 10px 25px #34432b17;padding:13px;transform:rotate(-2deg);transition:transform .4s}
+.project:hover .sheet{transform:rotate(0) scale(1.025)}
+.sheetline{height:5px;width:42%;background:#dce3d8;border-radius:5px;margin-bottom:9px}
+.sheetcells{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.sheetcells i{height:25px;background:#eef1e9;border-radius:2px}.sheetcells i:nth-child(2){background:#d4e2d3}
+.sheetbars{height:32px;display:flex;align-items:end;gap:5px;margin-top:8px}.sheetbars i{flex:1;background:var(--green);height:40%;border-radius:2px 2px 0 0}.sheetbars i:nth-child(2){height:72%}.sheetbars i:nth-child(3){height:52%}.sheetbars i:nth-child(4){height:95%;background:var(--orange)}.sheetbars i:nth-child(5){height:65%}
+.project-content{padding:19px;display:flex;flex-direction:column;flex:1}
+.project-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font:9px 'DM Mono',monospace;letter-spacing:.04em}
+.status{padding:5px 8px;border-radius:2px;background:#f4eadc;color:#94613d;white-space:nowrap}
+.status.dev{background:#e7ede4;color:var(--green)}
+.project h3{font:650 17px/1.25 Manrope,sans-serif;letter-spacing:-.04em;margin:14px 0 7px}
+.project p{color:#73796f;font-size:11px;line-height:1.75;margin:0 0 17px}
+.project-foot{margin-top:auto;border-top:1px solid #eeede6;padding-top:13px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--muted)}
+.project-foot a{color:var(--green);font-weight:700}.project-foot a span{display:inline-block;transition:transform .2s}.project-foot a:hover span{transform:translate(3px,-3px)}
+.empty{display:none;grid-column:1/-1;padding:38px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px;font-size:13px}
+.disclaimer{font:10px 'DM Mono',monospace;color:#878d82;margin-top:16px;line-height:1.7}
+.manifesto{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:start}
+.manifesto-aside{position:sticky;top:115px}
+.manifesto-aside .scribble{font:italic 13px Georgia,serif;color:var(--orange);margin-top:20px}
+.manifesto h2{max-width:420px}
+.manifesto-copy{font-size:16px;line-height:1.9;color:#596257}
+.manifesto-copy p{margin-bottom:20px}
+.manifesto-copy strong{color:var(--green)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:30px}
+.step{border-top:1px solid #c9cec3;padding:18px 12px 0 0}
+.step-num{font:10px 'DM Mono',monospace;color:var(--orange)}
+.step h3{font:650 15px Manrope,sans-serif;margin:12px 0 6px}
+.step p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+.invite{background:var(--green);color:#fffefa;padding:55px;border-radius:14px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
+.invite:after{content:"AT";position:absolute;right:16%;top:-85px;color:#ffffff0a;font:800 250px Manrope,sans-serif;letter-spacing:-.1em;pointer-events:none}
+.invite .kicker{color:var(--yellow)}
+.invite h2{max-width:580px;margin:10px 0 12px}
+.invite p{max-width:550px;color:#d1ddd3;font-size:12px;margin:0}
+.invite .button{background:var(--yellow);border-color:var(--yellow);color:var(--ink);white-space:nowrap;position:relative;z-index:1}
+footer{background:#1d2a22;color:#f4f1e9;padding:48px 0 22px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:35px}
+footer .brand{color:white}footer .brand small{color:#b5c0b3}
+footer p{color:#b5c0b3;font-size:11px;max-width:340px;line-height:1.8;margin-top:18px}
+footer h4{font:10px 'DM Mono',monospace;color:var(--yellow);letter-spacing:.1em;text-transform:uppercase;margin:5px 0 15px}
+footer .footer-links a{display:block;color:#c1c9bd;font-size:11px;margin:9px 0;transition:color .2s}
+footer .footer-links a:hover{color:white}
+.copyright{border-top:1px solid #ffffff20;padding-top:17px;display:flex;justify-content:space-between;gap:15px;color:#aab5a8;font:9px 'DM Mono',monospace}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.project:nth-child(2){transition-delay:.08s}.project:nth-child(3){transition-delay:.16s}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:30px}.artboard{max-width:480px;width:100%;margin:auto;min-height:350px}.projects{grid-template-columns:repeat(2,1fr)}.manifesto{grid-template-columns:1fr;gap:25px}.manifesto-aside{position:static}.invite{grid-template-columns:1fr}.invite .button{justify-self:start}}
+@media(max-width:580px){.wrap{width:calc(100% - 32px)}.announcement .wrap span:last-child{display:none}.nav{height:67px}.navlinks{display:none}.navbutton{padding:10px 13px;font-size:10px}.hero{padding:62px 0 48px}.hero-grid{gap:12px}h1{font-size:48px;letter-spacing:-.075em}.hero-copy{font-size:14px}.hero-note{margin-top:25px}.artboard{min-height:300px}.paper-card{padding:17px}.paper-card h3{font-size:21px}.side-note{right:0;bottom:5px}.section{padding:60px 0}.section-head{display:block}.section-desc{margin-top:13px}.projects{grid-template-columns:1fr}.project-visual{height:165px}.catalog-tools{gap:7px}.searchbox{flex-basis:100%}.filter{padding:9px 12px;font-size:10px}.steps{grid-template-columns:1fr;gap:20px}.step{padding-top:13px}.invite{padding:31px 24px}.invite h2{font-size:34px}.footer-grid{grid-template-columns:1fr 1fr;gap:25px}.footer-grid>div:first-child{grid-column:1/-1}.copyright{display:block;line-height:2}.copyright span{display:block}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+.admin-entry{display:block;border:0;background:none;padding:0;margin-top:10px;color:#aeb5a8;font:11px 'DM Sans',sans-serif;cursor:pointer}.admin-entry:hover{color:var(--yellow)}
+.admin-overlay{position:fixed;inset:0;z-index:60;background:rgba(18,28,21,.68);backdrop-filter:blur(7px);display:none;align-items:flex-start;justify-content:center;padding:24px;overflow:auto}.admin-overlay.open{display:flex;animation:fadeIn .2s ease}
+.admin-panel{width:min(1050px,100%);margin:auto;background:var(--paper);border-radius:18px;padding:clamp(20px,4vw,38px);box-shadow:0 30px 90px #0004;animation:panelIn .28s ease}
+.admin-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.admin-head h2{margin:7px 0;font-size:clamp(28px,4vw,40px)}.admin-head p{color:var(--muted);font-size:13px}.admin-close{border:1px solid var(--line);background:white;border-radius:50%;width:40px;height:40px;font-size:25px;cursor:pointer;flex:none}
+.admin-notice{background:#f1e8d5;border-left:3px solid var(--orange);padding:13px 15px;font-size:11px;color:#665a45;margin:15px 0 25px;line-height:1.7}.admin-columns{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}.admin-form,.admin-list{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px}.admin-form h3,.admin-list h3{font:700 17px Manrope,sans-serif;margin:0 0 16px}.admin-form label{display:block;font-size:11px;font-weight:700;color:#596257;margin:12px 0}.admin-form input,.admin-form textarea,.admin-form select{display:block;width:100%;margin-top:6px;padding:11px 12px;border:1px solid var(--line);border-radius:7px;background:#fffefa;color:var(--ink);font:12px 'DM Sans',sans-serif;outline:none}.admin-form input:focus,.admin-form textarea:focus,.admin-form select:focus{border-color:var(--green);box-shadow:0 0 0 3px #254f3d12}.admin-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.admin-list-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.admin-list-head span{font:10px 'DM Mono',monospace;color:var(--muted)}.admin-project{border-top:1px solid var(--line);padding:13px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}.admin-project strong{display:block;font:600 13px Manrope,sans-serif}.admin-project small{color:var(--muted);font-size:10px}.admin-project-actions{display:flex;gap:6px;flex:none}.admin-project-actions button{border:1px solid var(--line);border-radius:30px;background:white;padding:7px 10px;font-size:10px;cursor:pointer}.admin-project-actions button:hover{border-color:var(--green)}.admin-data{border-top:1px solid var(--line);margin-top:14px;padding-top:16px;display:flex;gap:8px;flex-wrap:wrap}.import-button{display:inline-flex;align-items:center;border:1px solid #aeb5a8;border-radius:999px;padding:11px 15px;font-size:11px;font-weight:700;cursor:pointer}.import-button input{display:none}.admin-empty{color:var(--muted);font-size:12px;padding:20px 0}.project-extra{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px;font:9px 'DM Mono',monospace;color:var(--muted)}.project-extra span{background:#f0f0e9;padding:4px 7px;border-radius:3px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.admin-overlay{padding:10px}.admin-columns{grid-template-columns:1fr}.admin-panel{padding:18px}.admin-form,.admin-list{padding:15px}.admin-head p{max-width:280px}}
+
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap"><span><strong>ATELIER TOUNGARA</strong> · Des idées concrètes, des outils utiles.</span><span>Une sélection de projets numériques à explorer</span></div></div>
-<header class="nav"><div class="wrap navin">
-<a class="brand" href="#"><span class="mark">AT</span> ATELIER TOUNGARA<span style="color:var(--blue)">.</span></a>
-<nav class="links"><a href="#catalogue">Explorer</a><a href="#fonctionnement">Comment ça marche</a><a href="#createur">Proposer un projet</a></nav>
-<a class="navcta" href="#catalogue">Découvrir les projets <span>↗</span></a>
+<div class="announcement"><div class="wrap"><span><b>ATELIER TOUNGARA</b> &nbsp;·&nbsp; Des créations numériques, sans détour.</span><span>Fait avec curiosité. Partagé avec soin.</span></div></div>
+<header><div class="wrap nav">
+<a class="brand" href="#accueil"><span class="brandmark">AT.</span><span>ATELIER TOUNGARA<small>PROJETS & RESSOURCES NUMÉRIQUES</small></span></a>
+<nav class="navlinks"><a href="#projets">Les projets</a><a href="#demarche">Notre démarche</a><a href="#contact">Contact</a></nav>
+<a class="navbutton" href="#projets">Explorer <span class="arrow">↗</span></a>
 </div></header>
-<main>
+<main id="accueil">
 <section class="hero"><div class="wrap hero-grid">
-<div><div class="eyebrow"><span class="dot"></span> ATELIER TOUNGARA · La bibliothèque des projets utiles</div>
-<h1>Des projets qui deviennent <em>des solutions.</em></h1>
-<p>Explorez des outils numériques, des modèles pratiques et des ressources conçus pour vous aider à apprendre, mieux travailler et concrétiser vos idées.</p>
-<div class="hero-actions"><a class="btn primary" href="#catalogue">Explorer la bibliothèque <span>→</span></a><a class="btn light" href="#fonctionnement">Comment ça marche</a></div>
-<div class="proof"><div><b>Des idées concrètes</b>Des projets présentés clairement</div><div><b>Accès simple</b>Gratuit ou premium</div><div><b>Pour tous</b>Curieux, étudiants, pros</div></div>
+<div class="reveal">
+<div class="eyebrow">Un atelier d'idées en mouvement</div>
+<h1>Des idées bien pensées. <em>Des outils qui servent.</em></h1>
+<p class="hero-copy">Bienvenue chez ATELIER TOUNGARA. Ici, je rassemble les projets numériques que je conçois : des outils pratiques, des simulations, des tableaux de bord et des ressources à utiliser dans la vraie vie.</p>
+<div class="hero-actions"><a class="button dark" href="#projets">Voir les projets <span class="arrow">↗</span></a><a class="button outline" href="#demarche">Découvrir l'atelier</a></div>
+<div class="hero-note"><div class="avatar-stack"><span>A</span><span>T</span><span>+</span></div><span>Des projets personnels, partagés pour être utiles.</span></div>
 </div>
-<div class="showcase" aria-label="Aperçu d'un tableau de bord"><div class="dash">
-<div class="dashhead"><span>APERÇU · TABLEAU DE BORD</span><span class="live">● EXEMPLE VISUEL</span></div>
-<div class="dashlabel">Vue synthétique · Indicateur de démonstration</div><div class="dashbig">Pilotez vos projets.</div>
-<div class="bars"><i style="height:35%"></i><i style="height:54%"></i><i style="height:43%"></i><i style="height:78%"></i><i style="height:62%"></i><i style="height:94%"></i><i style="height:72%"></i></div>
-<div class="minirow"><div class="mini"><small>ORGANISATION</small><b>Plus de clarté</b></div><div class="mini"><small>DÉCISION</small><b>Meilleure visibilité</b></div></div>
-</div><div class="floatcard"><small>À DÉCOUVRIR</small><b>Votre prochain outil ↗</b></div></div>
+<div class="artboard reveal"><div class="paper-card">
+<div class="card-top"><span>ATELIER TOUNGARA / CARNET DE CRÉATION</span><span class="stamp">EN CONSTRUCTION</span></div>
+<h3>Imaginer. Construire.<br>Mettre entre vos mains.</h3>
+<div class="small">Chaque projet commence par une question concrète.</div>
+<div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="paper-bottom"><div><small>APPROCHE</small><b>Pratique</b></div><div><small>OBJECTIF</small><b>Utile</b></div><div><small>ESPRIT</small><b>Curieux</b></div></div>
+</div><div class="side-note">UN ATELIER INDÉPENDANT<b>À suivre de près ↗</b></div></div>
 </div></section>
-<div class="wrap"><div class="stats"><div class="stat"><b>01</b><span>Une bibliothèque organisée</span></div><div class="stat"><b>02</b><span>Des projets expliqués</span></div><div class="stat"><b>03</b><span>Des ressources à télécharger</span></div><div class="stat"><b>04</b><span>Des accès gratuits et premium</span></div></div></div>
-<section class="section" id="catalogue"><div class="wrap">
-<div class="sectionhead"><div><div class="kicker">La bibliothèque</div><h2>Explorez les projets.</h2></div><p class="sub">Des ressources pensées pour passer de l'idée à l'action. Recherchez un outil ou parcourez les catégories.</p></div>
-<div class="toolbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Rechercher un projet, un outil…" aria-label="Rechercher un projet"></label>
-<button class="filter active" data-filter="all">Tout voir</button><button class="filter" data-filter="Finance">Finance</button><button class="filter" data-filter="Excel">Excel</button><button class="filter" data-filter="Gestion">Gestion</button><button class="filter" data-filter="Productivité">Productivité</button></div>
-<div class="cards" id="cards">
-<article class="project" data-category="Finance Excel" data-search="simulateur financier excel budget revenus dépenses investissements"><div class="thumb blue"><span class="tagtop">MODÈLE · EXCEL</span><div class="mock"><div class="mockline"></div><div class="mockgrid"><i></i><i></i><i></i></div><div class="mockchart"><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="projectbody"><div class="meta"><span>FINANCE · EXCEL</span><span class="pill">À venir</span></div><h3>Simulateur financier personnel</h3><p>Un projet de simulation pour organiser revenus, dépenses et scénarios financiers. La fiche détaillée et le fichier seront ajoutés après validation.</p><div class="projectfoot"><span class="format">Format prévu : à confirmer</span><span class="more">Découvrir ↗</span></div></div></article>
-<article class="project" data-category="Gestion Productivité" data-search="gestion projet organisation suivi tâches tableau de bord"><div class="thumb mint"><span class="tagtop">OUTIL · ORGANISATION</span><div class="mock" style="transform:rotate(3deg)"><div class="mockline" style="width:60%"></div><div class="mockgrid"><i></i><i></i><i></i></div><div style="height:9px;background:#e8f5ef;border-radius:4px;margin-top:8px"></div><div style="height:9px;background:#d2eee3;border-radius:4px;width:72%;margin-top:6px"></div></div></div><div class="projectbody"><div class="meta"><span>GESTION · PRODUCTIVITÉ</span><span class="pill">À venir</span></div><h3>Outil de suivi de projet</h3><p>Un espace de démonstration pour présenter une méthode de suivi et d'organisation. Contenu réel à renseigner avant publication.</p><div class="projectfoot"><span class="format">Format : à confirmer</span><span class="more">Découvrir ↗</span></div></div></article>
-<article class="project" data-category="Excel Productivité" data-search="tableau de bord excel indicateurs analyse reporting"><div class="thumb sand"><span class="tagtop">RESSOURCE · PILOTAGE</span><div class="mock" style="transform:rotate(-2deg)"><div class="mockline" style="width:35%"></div><div class="mockgrid"><i></i><i></i><i></i></div><div class="mockchart"><i style="background:#c28d43"></i><i style="background:#c28d43"></i><i style="background:#c28d43"></i><i style="background:#c28d43"></i><i style="background:#c28d43"></i></div></div></div><div class="projectbody"><div class="meta"><span>EXCEL · PILOTAGE</span><span class="pill">À venir</span></div><h3>Tableau de bord & indicateurs</h3><p>Une vitrine pour des outils de visualisation et de suivi de données. Les fonctionnalités seront précisées pour chaque réalisation.</p><div class="projectfoot"><span class="format">Format : à confirmer</span><span class="more">Découvrir ↗</span></div></div></article>
-<div class="empty" id="empty">Aucun projet ne correspond à cette recherche. Essayez un autre mot-clé.</div>
-</div><p class="notice">Les cartes ci-dessus sont des exemples de présentation. Aucun téléchargement n'est activé tant que les projets et leurs fichiers n'ont pas été publiés et vérifiés.</p>
+<div class="intro-strip"><div class="wrap strip-inner"><strong>Une idée ne devrait pas rester dans un dossier.</strong><p>Je la transforme en ressource, puis je la partage.</p></div></div>
+<section class="section" id="projets"><div class="wrap">
+<div class="section-head reveal"><div><div class="kicker">Le carnet de projets</div><h2>Ce qui prend forme<br>à l'atelier.</h2></div><p class="section-desc">Des réalisations en cours, des outils finalisés et des ressources à découvrir. Chaque fiche vous dira clairement ce que le projet fait — et ce qu'il ne fait pas.</p></div>
+<div class="catalog-tools reveal"><label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Un projet, un sujet, un outil…" aria-label="Rechercher un projet"></label>
+<button class="filter active" data-filter="all">Tout</button><button class="filter" data-filter="Finance">Finance</button><button class="filter" data-filter="Excel">Excel</button><button class="filter" data-filter="Gestion">Gestion</button><button class="filter" data-filter="Productivité">Productivité</button></div>
+<div class="projects" id="projects">
+<article class="project reveal" data-category="Finance Excel" data-search="cashflow ci cashflow côte ivoire simulateur financier excel simulation revenus dépenses investissement">
+<div class="project-visual sage"><span class="visual-label">01 / SIMULATION FINANCIÈRE</span><div class="sheet"><div class="sheetline"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+<div class="project-content"><div class="project-meta"><span>FINANCE · EXCEL</span><span class="status dev">En développement</span></div><h3>Cashflow Côte d’Ivoire</h3><p>Un jeu de simulation financière individuel sur Excel, pensé autour de situations et de réalités économiques ivoiriennes. Le projet est en cours de conception.</p><div class="project-foot"><span>Simulation · Excel</span><a href="#contact">Suivre le projet <span>↗</span></a></div></div></article>
+<article class="project reveal" data-category="Gestion Productivité" data-search="gestion projet organisation suivi tâches tableau de bord">
+<div class="project-visual clay"><span class="visual-label">02 / ORGANISATION</span><div class="sheet" style="transform:rotate(3deg)"><div class="sheetline" style="width:60%"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+<div class="project-content"><div class="project-meta"><span>GESTION · ORGANISATION</span><span class="status">À venir</span></div><h3>Outils de gestion & suivi</h3><p>Une place est réservée aux outils qui aident à mieux organiser son activité, suivre ses tâches et garder une vue d'ensemble.</p><div class="project-foot"><span>Ressources pratiques</span><a href="#contact">À découvrir <span>↗</span></a></div></div></article>
+<article class="project reveal" data-category="Excel Productivité" data-search="tableau de bord excel indicateurs analyse reporting">
+<div class="project-visual blue"><span class="visual-label">03 / DONNÉES & VISUALISATION</span><div class="sheet"><div class="sheetline" style="width:35%"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+<div class="project-content"><div class="project-meta"><span>EXCEL · ANALYSE</span><span class="status">À venir</span></div><h3>Tableaux de bord & analyses</h3><p>Des supports pour rendre les données plus lisibles et aider à prendre du recul avant de décider.</p><div class="project-foot"><span>Modèles & outils</span><a href="#contact">À découvrir <span>↗</span></a></div></div></article>
+<div class="empty" id="empty">Je n'ai pas trouvé de projet avec ces mots. Essayez une autre recherche.</div>
+</div>
+<p class="disclaimer">Les projets indiqués « à venir » ne sont pas encore disponibles au téléchargement. Les fiches et les fichiers seront publiés après vérification.</p>
 </div></section>
-<section class="section white" id="fonctionnement"><div class="wrap"><div class="sectionhead"><div><div class="kicker">Simple et transparent</div><h2>Du projet au téléchargement.</h2></div><p class="sub">Chaque ressource est présentée avec les informations nécessaires pour comprendre ce qu'elle fait et à qui elle s'adresse.</p></div>
-<div class="howgrid"><div class="how"><div class="num">01</div><h3>Explorez</h3><p>Parcourez les projets par thème, recherchez un besoin et consultez leur présentation.</p></div><div class="how"><div class="num">02</div><h3>Comprenez</h3><p>Découvrez les fonctionnalités, les formats, les prérequis et les conditions d'accès.</p></div><div class="how"><div class="num">03</div><h3>Téléchargez</h3><p>Récupérez les ressources gratuites ou accédez aux projets premium après achat.</p></div></div>
-</div></section>
-<section class="section"><div class="wrap"><div class="creator" id="createur"><div><div class="kicker" style="color:#53621f">Vous avez une idée ?</div><h2>Un bon projet mérite d'être vu et utilisé.</h2><p>Cette plateforme a vocation à grandir avec des outils concrets, des créations numériques et des ressources utiles à tous.</p></div><a class="btn" href="mailto:contact@exemple.com?subject=Proposition%20de%20projet">Proposer un projet <span>↗</span></a></div></div></section>
+<section class="section light" id="demarche"><div class="wrap manifesto">
+<div class="manifesto-aside reveal"><div class="kicker">L'esprit de l'atelier</div><h2>Pas des fichiers de plus. Des solutions à faire vivre.</h2><div class="scribble">— La qualité avant la quantité.</div></div>
+<div class="manifesto-copy reveal"><p>Je crois aux outils qui rendent service : ceux qu'on comprend, qu'on peut prendre en main et qui répondent à un vrai besoin.</p><p>ATELIER TOUNGARA est l'endroit où je donne une seconde vie à mes projets. Certains seront accessibles gratuitement. D'autres, plus complets, pourront être proposés à un prix juste.</p><p><strong>Pas de promesses gonflées :</strong> chaque projet aura sa présentation, ses fonctionnalités, son format, ses conditions d'accès et, lorsque c'est possible, une démonstration.</p>
+<div class="steps"><div class="step"><span class="step-num">01 — DÉCOUVRIR</span><h3>Parcourir</h3><p>Comprendre le projet et le besoin auquel il répond.</p></div><div class="step"><span class="step-num">02 — CHOISIR</span><h3>Se renseigner</h3><p>Vérifier le contenu, le format et les conditions d'accès.</p></div><div class="step"><span class="step-num">03 — UTILISER</span><h3>Passer à l'action</h3><p>Télécharger la ressource lorsqu'elle est publiée.</p></div></div>
+</div></div></section>
+<section class="section"><div class="wrap"><div class="invite reveal" id="contact"><div><div class="kicker">Restons en contact</div><h2>Un projet vous intéresse ? Une idée à partager ?</h2><p>Écrivez-moi. Les retours, les questions et les collaborations font aussi avancer l'atelier.</p></div><a class="button" href="mailto:sidiktoungara@gmail.com?subject=ATELIER%20TOUNGARA%20-%20Prise%20de%20contact">Prendre contact <span class="arrow">↗</span></a></div></div></section>
 </main>
-<footer class="footer"><div class="wrap"><div class="footgrid"><div><a class="brand" href="#" style="color:white"><span class="mark">AT</span> ATELIER TOUNGARA<span style="color:var(--lime)">.</span></a><p>La plateforme de projets numériques d’ATELIER TOUNGARA : des outils et des ressources pour apprendre, créer et avancer.</p></div><div><h4>Explorer</h4><a href="#catalogue">Tous les projets</a><a href="#catalogue">Finance & Excel</a><a href="#catalogue">Gestion & productivité</a></div><div><h4>La plateforme</h4><a href="#fonctionnement">Comment ça marche</a><a href="#createur">Proposer un projet</a><a href="mailto:contact@exemple.com">Nous contacter</a></div></div><div class="copyright"><span>© 2026 ATELIER TOUNGARA. Tous droits réservés.</span><span>Une idée bien conçue peut devenir une solution.</span></div></div></footer>
+
+<div class="admin-overlay" id="adminOverlay" aria-hidden="true">
+ <section class="admin-panel" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div class="admin-head"><div><div class="kicker">ATELIER TOUNGARA / BACK-OFFICE</div><h2 id="adminTitle">Espace de gestion</h2><p>Gérez les fiches visibles dans le catalogue depuis cet appareil.</p></div><button class="admin-close" id="closeAdmin" aria-label="Fermer">×</button></div>
+  <div class="admin-notice" id="adminNotice"><strong>Connexion sécurisée :</strong> connectez-vous avec le compte administrateur créé dans Supabase. Les projets seront enregistrés dans la base de données en ligne.</div>
+  <form id="adminLogin" class="admin-form" style="max-width:430px;margin:0 auto 22px">
+   <h3>Connexion administrateur</h3>
+   <label>Adresse e-mail<input id="adminEmail" type="email" autocomplete="username" required placeholder="Votre adresse e-mail"></label>
+   <label>Mot de passe<input id="adminPassword" type="password" autocomplete="current-password" required placeholder="Votre mot de passe"></label>
+   <div class="admin-actions"><button class="button dark" type="submit" id="loginButton">Se connecter</button></div>
+   <p id="loginMessage" role="status" style="font-size:11px;color:#8b493b"></p>
+  </form>
+  <div class="admin-columns" id="adminWorkspace" style="display:none">
+   <form id="projectForm" class="admin-form">
+    <h3 id="formTitle">Ajouter un projet</h3><input type="hidden" id="editId">
+    <label>Nom du projet<input id="pTitle" required maxlength="90" placeholder="Ex. : Tableau de bord PME"></label>
+    <label>Description<textarea id="pDescription" required maxlength="500" rows="4" placeholder="À quoi sert ce projet ?"></textarea></label>
+    <div class="admin-two"><label>Catégorie<select id="pCategory"><option>Finance</option><option>Excel</option><option>Gestion</option><option>Productivité</option><option>Formation</option><option>Autre</option></select></label><label>État<select id="pStatus"><option value="En développement">En développement</option><option value="Disponible">Disponible</option><option value="À venir">À venir</option></select></label></div>
+    <div class="admin-two"><label>Accès<select id="pAccess"><option value="Gratuit">Gratuit</option><option value="Payant">Payant</option><option value="Sur demande">Sur demande</option></select></label><label>Prix (FCFA)<input id="pPrice" type="number" min="0" step="500" placeholder="Facultatif"></label></div>
+    <label>Lien de consultation ou téléchargement<input id="pLink" type="url" placeholder="https://…"></label>
+    <div class="admin-actions"><button class="button dark" type="submit" id="saveProject">Enregistrer le projet</button><button class="button outline" type="button" id="cancelEdit">Effacer</button></div>
+   </form>
+   <div class="admin-list"><div class="admin-list-head"><h3>Vos publications</h3><span id="projectCount">0 projet</span></div><div id="adminProjects"></div>
+    <div class="admin-data"><button class="button outline" id="exportData" type="button">Exporter mes données JSON ↗</button><label class="import-button">Importer une sauvegarde<input type="file" id="importData" accept="application/json"></label></div>
+   </div>
+  </div>
+ </section>
+</div>
+
+<footer><div class="wrap"><div class="footer-grid">
+<div><a class="brand" href="#accueil"><span class="brandmark">AT.</span><span>ATELIER TOUNGARA<small>PROJETS & RESSOURCES NUMÉRIQUES</small></span></a><p>Un atelier indépendant pour concevoir, documenter et partager des projets numériques utiles.</p></div>
+<div class="footer-links"><h4>Explorer</h4><a href="#projets">Les projets</a><a href="#demarche">Notre démarche</a></div>
+<div class="footer-links"><h4>Échanger</h4><a href="#contact">Contact</a><a href="#accueil">Retour en haut ↑</a><button class="admin-entry" id="openAdmin" type="button">Espace de gestion ↗</button></div>
+</div><div class="copyright"><span>© 2026 ATELIER TOUNGARA. Tous droits réservés.</span><span>Conçu avec attention.</span></div></div></footer>
 <script>
-const search=document.getElementById('search'), cards=[...document.querySelectorAll('.project')], filters=[...document.querySelectorAll('.filter')], empty=document.getElementById('empty');let active='all';
-function update(){const q=search.value.toLocaleLowerCase('fr');let count=0;cards.forEach(c=>{const okCat=active==='all'||c.dataset.category.split(' ').includes(active);const okText=(c.dataset.search+' '+c.innerText).toLocaleLowerCase('fr').includes(q);c.style.display=okCat&&okText?'flex':'none';if(okCat&&okText)count++});empty.style.display=count?'none':'block'}
-filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.filter;update()}));search.addEventListener('input',update);
+const search=document.getElementById('search');
+const cards=[...document.querySelectorAll('.project')];
+const filters=[...document.querySelectorAll('.filter')];
+const empty=document.getElementById('empty');
+let active='all';
+function updateProjects(){
+ const q=search.value.toLocaleLowerCase('fr');let count=0;
+ document.querySelectorAll('.project').forEach(card=>{
+  const categories=card.dataset.category.split(' ');
+  const categoryMatch=active==='all'||categories.includes(active);
+  const textMatch=(card.dataset.search+' '+card.innerText).toLocaleLowerCase('fr').includes(q);
+  card.style.display=categoryMatch&&textMatch?'flex':'none';
+  if(categoryMatch&&textMatch)count++;
+ });
+ empty.style.display=count?'none':'block';
+}
+filters.forEach(button=>button.addEventListener('click',()=>{
+ filters.forEach(item=>item.classList.remove('active'));
+ button.classList.add('active');active=button.dataset.filter;updateProjects();
+}));
+search.addEventListener('input',updateProjects);
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+ });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-</body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Connexion Supabase — la clé publishable est destinée au navigateur ; les droits sont contrôlés par RLS.
+(()=>{
+ const SUPABASE_URL='https://ppvuwquwqbvabipuplnw.supabase.co';
+ const SUPABASE_KEY='sb_publishable_xWn1KHFoZ1xRhxLrq6yjSg_6ukvvvE9';
+ const ADMIN_UID='fefc4c67-1593-41ce-b12b-33fec0f0c1be';
+ const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+ const $=id=>document.getElementById(id), overlay=$('adminOverlay'), form=$('projectForm'), list=$('adminProjects');
+ let projects=[];
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const slugify=v=>v.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ function setMessage(msg,isError=true){$('loginMessage').textContent=msg;$('loginMessage').style.color=isError?'#8b493b':'#315f45'}
+ function mapRow(r){return {id:r.id,title:r.title,description:r.description||'',category:r.category||'Autre',status:r.status||'À venir',access:r.access_type||'Gratuit',price:r.price_fcfa||'',link:r.resource_url||'',published:r.is_published}}
+ async function loadPublic(){
+  const {data,error}=await db.from('projects').select('id,title,description,category,status,access_type,price_fcfa,resource_url,is_published,created_at').eq('is_published',true).order('created_at',{ascending:false});
+  if(error){console.error('Chargement projets:',error.message);return}
+  projects=(data||[]).map(mapRow);renderPublic();
+ }
+ function render(){list.innerHTML='';$('projectCount').textContent=projects.length+' projet'+(projects.length>1?'s':'');
+  if(!projects.length){list.innerHTML='<p class="admin-empty">Aucun projet enregistré pour le moment.</p>';return}
+  projects.forEach(p=>{const row=document.createElement('div');row.className='admin-project';row.innerHTML=`<div><strong>${esc(p.title)}</strong><small>${esc(p.category)} · ${esc(p.status)} · ${esc(p.access)}</small></div><div class="admin-project-actions"><button type="button" data-edit="${esc(p.id)}">Modifier</button><button type="button" data-delete="${esc(p.id)}">Supprimer</button></div>`;list.appendChild(row)});
+ }
+ function reset(){form.reset();$('editId').value='';$('formTitle').textContent='Ajouter un projet';$('saveProject').textContent='Enregistrer le projet'}
+ function renderPublic(){document.querySelectorAll('.managed-project').forEach(el=>el.remove());const grid=$('projects');projects.filter(p=>p.published!==false).forEach((p,i)=>{const card=document.createElement('article');card.className='project managed-project reveal';card.dataset.category=p.category;card.dataset.search=(p.title+' '+p.description+' '+p.category).toLocaleLowerCase('fr');const colors=['sage','clay','blue'];const label=p.category.toLocaleUpperCase('fr');const link=p.link?`<a href="${esc(p.link)}" target="_blank" rel="noopener">${p.status==='Disponible'?'Accéder au projet':'En savoir plus'} <span>↗</span></a>`:'<span>Informations à venir</span>';const price=p.access==='Payant'&&p.price?Number(p.price).toLocaleString('fr-FR')+' FCFA':p.access;card.innerHTML=`<div class="project-visual ${colors[i%3]}"><span class="visual-label">${esc(label)} / ATELIER</span><div class="sheet"><div class="sheetline"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-meta"><span>${esc(label)}</span><span class="status">${esc(p.status)}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p><div class="project-extra"><span>${esc(p.access)}${p.access==='Payant'&&p.price?' · '+esc(price):''}</span></div><div class="project-foot"><span>${esc(p.category)}</span>${link}</div></div>`;grid.insertBefore(card,$('empty'));});updateProjects();}
+ async function checkSession(){const {data}=await db.auth.getSession();const user=data.session?.user;if(user&&user.id===ADMIN_UID){$('adminLogin').style.display='none';$('adminWorkspace').style.display='grid';$('adminNotice').innerHTML='<strong>Connecté :</strong> votre espace de gestion est relié à Supabase.';await loadAdmin()}else{$('adminLogin').style.display='block';$('adminWorkspace').style.display='none';if(user){await db.auth.signOut();setMessage('Ce compte ne dispose pas des droits administrateur.')}}}
+ async function loadAdmin(){const {data,error}=await db.from('projects').select('*').order('created_at',{ascending:false});if(error){setMessage('Impossible de charger les projets : '+error.message);return}projects=(data||[]).map(mapRow);render();renderPublic()}
+ $('openAdmin').addEventListener('click',()=>{overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';checkSession()});
+ function close(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+ $('closeAdmin').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))close()});
+ $('adminLogin').addEventListener('submit',async e=>{e.preventDefault();$('loginButton').disabled=true;setMessage('Connexion en cours…',false);const {data,error}=await db.auth.signInWithPassword({email:$('adminEmail').value.trim(),password:$('adminPassword').value});$('loginButton').disabled=false;if(error){setMessage('Connexion impossible. Vérifiez votre e-mail et votre mot de passe.');return}if(data.user.id!==ADMIN_UID){await db.auth.signOut();setMessage('Ce compte n’est pas autorisé à gérer les projets.');return}setMessage('',false);await checkSession()});
+ form.addEventListener('submit',async e=>{e.preventDefault();const old=projects.find(p=>p.id===$('editId').value);const title=$('pTitle').value.trim();const payload={title,slug:slugify(title),description:$('pDescription').value.trim(),category:$('pCategory').value,status:$('pStatus').value,access_type:$('pAccess').value,price_fcfa:Number($('pPrice').value)||0,resource_url:$('pLink').value.trim()||null,is_published:old?old.published:true};if(!title||!payload.description)return;let result;if(old){result=await db.from('projects').update(payload).eq('id',old.id)}else{result=await db.from('projects').insert(payload)}if(result.error){alert('Enregistrement impossible : '+result.error.message);return}reset();await loadAdmin()});
+ $('cancelEdit').addEventListener('click',reset);
+ list.addEventListener('click',async e=>{const id=e.target.dataset.edit,del=e.target.dataset.delete;if(id){const p=projects.find(x=>x.id===id);if(!p)return;$('editId').value=p.id;$('pTitle').value=p.title;$('pDescription').value=p.description;$('pCategory').value=p.category;$('pStatus').value=p.status;$('pAccess').value=p.access;$('pPrice').value=p.price||'';$('pLink').value=p.link||'';$('formTitle').textContent='Modifier le projet';$('saveProject').textContent='Mettre à jour';form.scrollIntoView({behavior:'smooth',block:'start'})}if(del&&confirm('Supprimer définitivement ce projet ?')){const {error}=await db.from('projects').delete().eq('id',del);if(error)alert('Suppression impossible : '+error.message);else await loadAdmin()}});
+ db.auth.onAuthStateChange((_event,session)=>{if(!session){$('adminLogin').style.display='block';$('adminWorkspace').style.display='none'}});
+ loadPublic();
+})();
+</script>
+</body>
+</html>
