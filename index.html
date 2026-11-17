@@ -173,15 +173,7 @@ footer .footer-links a:hover{color:white}
 <div class="catalog-tools reveal"><label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Un projet, un sujet, un outil…" aria-label="Rechercher un projet"></label>
 <button class="filter active" data-filter="all">Tout</button><button class="filter" data-filter="Finance">Finance</button><button class="filter" data-filter="Excel">Excel</button><button class="filter" data-filter="Gestion">Gestion</button><button class="filter" data-filter="Productivité">Productivité</button></div>
 <div class="projects" id="projects">
-<article class="project reveal" data-category="Finance Excel" data-search="cashflow ci cashflow côte ivoire simulateur financier excel simulation revenus dépenses investissement">
-<div class="project-visual sage"><span class="visual-label">01 / SIMULATION FINANCIÈRE</span><div class="sheet"><div class="sheetline"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
-<div class="project-content"><div class="project-meta"><span>FINANCE · EXCEL</span><span class="status dev">En développement</span></div><h3>Cashflow Côte d’Ivoire</h3><p>Un jeu de simulation financière individuel sur Excel, pensé autour de situations et de réalités économiques ivoiriennes. Le projet est en cours de conception.</p><div class="project-foot"><span>Simulation · Excel</span><a href="#contact">Suivre le projet <span>↗</span></a></div></div></article>
-<article class="project reveal" data-category="Gestion Productivité" data-search="gestion projet organisation suivi tâches tableau de bord">
-<div class="project-visual clay"><span class="visual-label">02 / ORGANISATION</span><div class="sheet" style="transform:rotate(3deg)"><div class="sheetline" style="width:60%"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
-<div class="project-content"><div class="project-meta"><span>GESTION · ORGANISATION</span><span class="status">À venir</span></div><h3>Outils de gestion & suivi</h3><p>Une place est réservée aux outils qui aident à mieux organiser son activité, suivre ses tâches et garder une vue d'ensemble.</p><div class="project-foot"><span>Ressources pratiques</span><a href="#contact">À découvrir <span>↗</span></a></div></div></article>
-<article class="project reveal" data-category="Excel Productivité" data-search="tableau de bord excel indicateurs analyse reporting">
-<div class="project-visual blue"><span class="visual-label">03 / DONNÉES & VISUALISATION</span><div class="sheet"><div class="sheetline" style="width:35%"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
-<div class="project-content"><div class="project-meta"><span>EXCEL · ANALYSE</span><span class="status">À venir</span></div><h3>Tableaux de bord & analyses</h3><p>Des supports pour rendre les données plus lisibles et aider à prendre du recul avant de décider.</p><div class="project-foot"><span>Modèles & outils</span><a href="#contact">À découvrir <span>↗</span></a></div></div></article>
+<!-- Les cartes sont désormais injectées dynamiquement depuis Supabase -->
 <div class="empty" id="empty">Je n'ai pas trouvé de projet avec ces mots. Essayez une autre recherche.</div>
 </div>
 <p class="disclaimer">Les projets indiqués « à venir » ne sont pas encore disponibles au téléchargement. Les fiches et les fichiers seront publiés après vérification.</p>
@@ -227,72 +219,359 @@ footer .footer-links a:hover{color:white}
 <div class="footer-links"><h4>Explorer</h4><a href="#projets">Les projets</a><a href="#demarche">Notre démarche</a></div>
 <div class="footer-links"><h4>Échanger</h4><a href="#contact">Contact</a><a href="#accueil">Retour en haut ↑</a><button class="admin-entry" id="openAdmin" type="button">Espace de gestion ↗</button></div>
 </div><div class="copyright"><span>© 2026 ATELIER TOUNGARA. Tous droits réservés.</span><span>Conçu avec attention.</span></div></div></footer>
-<script>
-const search=document.getElementById('search');
-const cards=[...document.querySelectorAll('.project')];
-const filters=[...document.querySelectorAll('.filter')];
-const empty=document.getElementById('empty');
-let active='all';
-function updateProjects(){
- const q=search.value.toLocaleLowerCase('fr');let count=0;
- document.querySelectorAll('.project').forEach(card=>{
-  const categories=card.dataset.category.split(' ');
-  const categoryMatch=active==='all'||categories.includes(active);
-  const textMatch=(card.dataset.search+' '+card.innerText).toLocaleLowerCase('fr').includes(q);
-  card.style.display=categoryMatch&&textMatch?'flex':'none';
-  if(categoryMatch&&textMatch)count++;
- });
- empty.style.display=count?'none':'block';
-}
-filters.forEach(button=>button.addEventListener('click',()=>{
- filters.forEach(item=>item.classList.remove('active'));
- button.classList.add('active');active=button.dataset.filter;updateProjects();
-}));
-search.addEventListener('input',updateProjects);
-const observer=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
- });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// Connexion Supabase — la clé publishable est destinée au navigateur ; les droits sont contrôlés par RLS.
 (()=>{
  const SUPABASE_URL='https://ppvuwquwqbvabipuplnw.supabase.co';
  const SUPABASE_KEY='sb_publishable_xWn1KHFoZ1xRhxLrq6yjSg_6ukvvvE9';
  const ADMIN_UID='fefc4c67-1593-41ce-b12b-33fec0f0c1be';
  const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{
   global:{headers:{apikey:SUPABASE_KEY}}
-});
- const $=id=>document.getElementById(id), overlay=$('adminOverlay'), form=$('projectForm'), list=$('adminProjects');
+ });
+
+ const $=id=>document.getElementById(id);
+ const overlay=$('adminOverlay'), form=$('projectForm'), list=$('adminProjects');
+ const grid=$('projects'), empty=$('empty');
+ const search=$('search');
+ const filters=[...document.querySelectorAll('.filter')];
+ let activeFilter='all';
  let projects=[];
+
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const slugify=v=>v.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
- function setMessage(msg,isError=true){$('loginMessage').textContent=msg;$('loginMessage').style.color=isError?'#8b493b':'#315f45'}
- function mapRow(r){return {id:r.id,title:r.title,description:r.description||'',category:r.category||'Autre',status:r.status||'À venir',access:r.access_type||'Gratuit',price:r.price_fcfa||'',link:r.resource_url||'',published:r.is_published}}
+
+ function setMessage(msg,isError=true){
+  const el=$('loginMessage');
+  el.textContent=msg;
+  el.style.color=isError?'#8b493b':'#315f45';
+ }
+
+ function mapRow(r){
+  return {
+   id:r.id,
+   title:r.title,
+   description:r.description||'',
+   category:r.category||'Autre',
+   status:r.status||'À venir',
+   access:r.access_type||'Gratuit',
+   price:r.price_fcfa||'',
+   link:r.resource_url||'',
+   published:r.is_published === true
+  };
+ }
+
+ /* ---------- Filtrage / recherche ---------- */
+ function updateProjects(){
+  const q=(search.value||'').toLocaleLowerCase('fr');
+  const cards=[...grid.querySelectorAll('.project.managed-project')];
+  let count=0;
+  cards.forEach(card=>{
+   const cats=(card.dataset.category||'').split(' ');
+   const catMatch=activeFilter==='all'||cats.includes(activeFilter);
+   const textMatch=(card.dataset.search||'').includes(q)||card.innerText.toLocaleLowerCase('fr').includes(q);
+   const visible=catMatch&&textMatch;
+   card.style.display=visible?'flex':'none';
+   if(visible)count++;
+  });
+  empty.style.display=count?'none':'block';
+ }
+
+ filters.forEach(btn=>btn.addEventListener('click',()=>{
+  filters.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter=btn.dataset.filter;
+  updateProjects();
+ }));
+ search.addEventListener('input',updateProjects);
+
+ /* ---------- Rendu public ---------- */
+ function renderPublic(){
+  // 1) On nettoie toutes les cartes gérées précédemment
+  grid.querySelectorAll('.project.managed-project').forEach(el=>el.remove());
+
+  // 2) On injecte uniquement les projets publiés
+  const visible=projects.filter(p=>p.published===true);
+  if(!visible.length){
+   updateProjects();
+   return;
+  }
+  const colors=['sage','clay','blue'];
+  visible.forEach((p,i)=>{
+   const card=document.createElement('article');
+   card.className='project managed-project reveal';
+   card.dataset.category=p.category;
+   card.dataset.search=(p.title+' '+p.description+' '+p.category).toLocaleLowerCase('fr');
+   const label=p.category.toLocaleUpperCase('fr');
+   const priceLabel=(p.access==='Payant'&&p.price)?Number(p.price).toLocaleString('fr-FR')+' FCFA':null;
+   const link=p.link
+    ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${p.status==='Disponible'?'Accéder au projet':'En savoir plus'} <span>↗</span></a>`
+    : '<span>Informations à venir</span>';
+   card.innerHTML=`
+    <div class="project-visual ${colors[i%3]}">
+     <span class="visual-label">${esc(label)} / ATELIER</span>
+     <div class="sheet">
+      <div class="sheetline"></div>
+      <div class="sheetcells"><i></i><i></i><i></i></div>
+      <div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div>
+     </div>
+    </div>
+    <div class="project-content">
+     <div class="project-meta"><span>${esc(label)}</span><span class="status">${esc(p.status)}</span></div>
+     <h3>${esc(p.title)}</h3>
+     <p>${esc(p.description)}</p>
+     <div class="project-extra"><span>${esc(p.access)}${priceLabel?' · '+esc(priceLabel):''}</span></div>
+     <div class="project-foot"><span>${esc(p.category)}</span>${link}</div>
+    </div>`;
+   grid.insertBefore(card,empty);
+  });
+
+  // 3) On ré-observe les nouveaux .reveal
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>revealObserver.observe(el));
+
+  updateProjects();
+ }
+
+ /* ---------- Chargement public ---------- */
  async function loadPublic(){
-  const {data,error}=await db.from('projects').select('id,title,description,category,status,access_type,price_fcfa,resource_url,is_published,created_at').eq('is_published',true).order('created_at',{ascending:false});
-  if(error){console.error('Chargement projets:',error.message);return}
-  projects=(data||[]).map(mapRow);renderPublic();
+  const {data,error}=await db
+   .from('projects')
+   .select('id,title,description,category,status,access_type,price_fcfa,resource_url,is_published,created_at')
+   .eq('is_published',true)
+   .order('created_at',{ascending:false});
+
+  if(error){
+   console.error('❌ Chargement projets publics:',error.message);
+   setMessage('Erreur de chargement des projets : '+error.message);
+   return;
+  }
+  console.log('✅ Projets publics chargés:',data?.length,data);
+  projects=(data||[]).map(mapRow);
+  renderPublic();
  }
- function render(){list.innerHTML='';$('projectCount').textContent=projects.length+' projet'+(projects.length>1?'s':'');
-  if(!projects.length){list.innerHTML='<p class="admin-empty">Aucun projet enregistré pour le moment.</p>';return}
-  projects.forEach(p=>{const row=document.createElement('div');row.className='admin-project';row.innerHTML=`<div><strong>${esc(p.title)}</strong><small>${esc(p.category)} · ${esc(p.status)} · ${esc(p.access)}</small></div><div class="admin-project-actions"><button type="button" data-edit="${esc(p.id)}">Modifier</button><button type="button" data-delete="${esc(p.id)}">Supprimer</button></div>`;list.appendChild(row)});
+
+ /* ---------- Rendu admin ---------- */
+ function renderAdmin(){
+  list.innerHTML='';
+  $('projectCount').textContent=projects.length+' projet'+(projects.length>1?'s':'');
+  if(!projects.length){
+   list.innerHTML='<p class="admin-empty">Aucun projet enregistré pour le moment.</p>';
+   return;
+  }
+  projects.forEach(p=>{
+   const row=document.createElement('div');
+   row.className='admin-project';
+   row.innerHTML=`
+    <div>
+     <strong>${esc(p.title)}</strong>
+     <small>${esc(p.category)} · ${esc(p.status)} · ${esc(p.access)} ${p.published?'· publié':'· brouillon'}</small>
+    </div>
+    <div class="admin-project-actions">
+     <button type="button" data-edit="${esc(p.id)}">Modifier</button>
+     <button type="button" data-delete="${esc(p.id)}">Supprimer</button>
+    </div>`;
+   list.appendChild(row);
+  });
  }
- function reset(){form.reset();$('editId').value='';$('formTitle').textContent='Ajouter un projet';$('saveProject').textContent='Enregistrer le projet'}
- function renderPublic(){document.querySelectorAll('.managed-project').forEach(el=>el.remove());const grid=$('projects');projects.filter(p=>p.published!==false).forEach((p,i)=>{const card=document.createElement('article');card.className='project managed-project reveal';card.dataset.category=p.category;card.dataset.search=(p.title+' '+p.description+' '+p.category).toLocaleLowerCase('fr');const colors=['sage','clay','blue'];const label=p.category.toLocaleUpperCase('fr');const link=p.link?`<a href="${esc(p.link)}" target="_blank" rel="noopener">${p.status==='Disponible'?'Accéder au projet':'En savoir plus'} <span>↗</span></a>`:'<span>Informations à venir</span>';const price=p.access==='Payant'&&p.price?Number(p.price).toLocaleString('fr-FR')+' FCFA':p.access;card.innerHTML=`<div class="project-visual ${colors[i%3]}"><span class="visual-label">${esc(label)} / ATELIER</span><div class="sheet"><div class="sheetline"></div><div class="sheetcells"><i></i><i></i><i></i></div><div class="sheetbars"><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-meta"><span>${esc(label)}</span><span class="status">${esc(p.status)}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p><div class="project-extra"><span>${esc(p.access)}${p.access==='Payant'&&p.price?' · '+esc(price):''}</span></div><div class="project-foot"><span>${esc(p.category)}</span>${link}</div></div>`;grid.insertBefore(card,$('empty'));});updateProjects();}
- async function checkSession(){const {data}=await db.auth.getSession();const user=data.session?.user;if(user&&user.id===ADMIN_UID){$('adminLogin').style.display='none';$('adminWorkspace').style.display='grid';$('adminNotice').innerHTML='<strong>Connecté :</strong> votre espace de gestion est relié à Supabase.';await loadAdmin()}else{$('adminLogin').style.display='block';$('adminWorkspace').style.display='none';if(user){await db.auth.signOut();setMessage('Ce compte ne dispose pas des droits administrateur.')}}}
- async function loadAdmin(){const {data,error}=await db.from('projects').select('*').order('created_at',{ascending:false});if(error){setMessage('Impossible de charger les projets : '+error.message);return}projects=(data||[]).map(mapRow);render();renderPublic()}
- $('openAdmin').addEventListener('click',()=>{overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';checkSession()});
- function close(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
- $('closeAdmin').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))close()});
- $('adminLogin').addEventListener('submit',async e=>{e.preventDefault();$('loginButton').disabled=true;setMessage('Connexion en cours…',false);const {data,error}=await db.auth.signInWithPassword({email:$('adminEmail').value.trim(),password:$('adminPassword').value});$('loginButton').disabled=false;if(error){setMessage('Connexion impossible. Vérifiez votre e-mail et votre mot de passe.');return}if(data.user.id!==ADMIN_UID){await db.auth.signOut();setMessage('Ce compte n’est pas autorisé à gérer les projets.');return}setMessage('',false);await checkSession()});
- form.addEventListener('submit',async e=>{e.preventDefault();const old=projects.find(p=>p.id===$('editId').value);const title=$('pTitle').value.trim();const payload={title,slug:slugify(title),description:$('pDescription').value.trim(),category:$('pCategory').value,status:$('pStatus').value,access_type:$('pAccess').value,price_fcfa:Number($('pPrice').value)||0,resource_url:$('pLink').value.trim()||null,is_published:old?old.published:true};if(!title||!payload.description)return;let result;if(old){result=await db.from('projects').update(payload).eq('id',old.id)}else{result=await db.from('projects').insert(payload)}if(result.error){alert('Enregistrement impossible : '+result.error.message);return}reset();await loadAdmin()});
- $('cancelEdit').addEventListener('click',reset);
- list.addEventListener('click',async e=>{const id=e.target.dataset.edit,del=e.target.dataset.delete;if(id){const p=projects.find(x=>x.id===id);if(!p)return;$('editId').value=p.id;$('pTitle').value=p.title;$('pDescription').value=p.description;$('pCategory').value=p.category;$('pStatus').value=p.status;$('pAccess').value=p.access;$('pPrice').value=p.price||'';$('pLink').value=p.link||'';$('formTitle').textContent='Modifier le projet';$('saveProject').textContent='Mettre à jour';form.scrollIntoView({behavior:'smooth',block:'start'})}if(del&&confirm('Supprimer définitivement ce projet ?')){const {error}=await db.from('projects').delete().eq('id',del);if(error)alert('Suppression impossible : '+error.message);else await loadAdmin()}});
- db.auth.onAuthStateChange((_event,session)=>{if(!session){$('adminLogin').style.display='block';$('adminWorkspace').style.display='none'}});
+
+ function resetForm(){
+  form.reset();
+  $('editId').value='';
+  $('formTitle').textContent='Ajouter un projet';
+  $('saveProject').textContent='Enregistrer le projet';
+ }
+
+ /* ---------- Session ---------- */
+ async function checkSession(){
+  const {data}=await db.auth.getSession();
+  const user=data.session?.user;
+  if(user && user.id===ADMIN_UID){
+   $('adminLogin').style.display='none';
+   $('adminWorkspace').style.display='grid';
+   $('adminNotice').innerHTML='<strong>Connecté :</strong> votre espace de gestion est relié à Supabase.';
+   await loadAdmin();
+  } else {
+   $('adminLogin').style.display='block';
+   $('adminWorkspace').style.display='none';
+   if(user){
+    await db.auth.signOut();
+    setMessage('Ce compte ne dispose pas des droits administrateur.');
+   }
+  }
+ }
+
+ async function loadAdmin(){
+  const {data,error}=await db.from('projects').select('*').order('created_at',{ascending:false});
+  if(error){
+   console.error('❌ Chargement admin:',error.message);
+   setMessage('Impossible de charger les projets : '+error.message);
+   return;
+  }
+  projects=(data||[]).map(mapRow);
+  renderAdmin();
+  renderPublic();
+ }
+
+ /* ---------- Ouverture / fermeture admin ---------- */
+ $('openAdmin').addEventListener('click',()=>{
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  checkSession();
+ });
+ function closeAdmin(){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+ }
+ $('closeAdmin').addEventListener('click',closeAdmin);
+ overlay.addEventListener('click',e=>{if(e.target===overlay)closeAdmin()});
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&overlay.classList.contains('open'))closeAdmin();
+ });
+
+ /* ---------- Login ---------- */
+ $('adminLogin').addEventListener('submit',async e=>{
+  e.preventDefault();
+  $('loginButton').disabled=true;
+  setMessage('Connexion en cours…',false);
+  const {data,error}=await db.auth.signInWithPassword({
+   email:$('adminEmail').value.trim(),
+   password:$('adminPassword').value
+  });
+  $('loginButton').disabled=false;
+  if(error){
+   setMessage('Connexion impossible. Vérifiez votre e-mail et votre mot de passe.');
+   return;
+  }
+  if(data.user.id!==ADMIN_UID){
+   await db.auth.signOut();
+   setMessage('Ce compte n’est pas autorisé à gérer les projets.');
+   return;
+  }
+  setMessage('',false);
+  await checkSession();
+ });
+
+ /* ---------- Formulaire projet ---------- */
+ form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const old=projects.find(p=>p.id===$('editId').value);
+  const title=$('pTitle').value.trim();
+  const payload={
+   title,
+   slug:slugify(title),
+   description:$('pDescription').value.trim(),
+   category:$('pCategory').value,
+   status:$('pStatus').value,
+   access_type:$('pAccess').value,
+   price_fcfa:Number($('pPrice').value)||0,
+   resource_url:$('pLink').value.trim()||null,
+   is_published:old?old.published:true
+  };
+  if(!title||!payload.description)return;
+
+  let result;
+  if(old){
+   result=await db.from('projects').update(payload).eq('id',old.id);
+  } else {
+   result=await db.from('projects').insert(payload);
+  }
+  if(result.error){
+   alert('Enregistrement impossible : '+result.error.message);
+   return;
+  }
+  resetForm();
+  await loadAdmin();
+ });
+
+ $('cancelEdit').addEventListener('click',resetForm);
+
+ /* ---------- Actions liste admin ---------- */
+ list.addEventListener('click',async e=>{
+  const id=e.target.dataset.edit;
+  const del=e.target.dataset.delete;
+  if(id){
+   const p=projects.find(x=>x.id===id);
+   if(!p)return;
+   $('editId').value=p.id;
+   $('pTitle').value=p.title;
+   $('pDescription').value=p.description;
+   $('pCategory').value=p.category;
+   $('pStatus').value=p.status;
+   $('pAccess').value=p.access;
+   $('pPrice').value=p.price||'';
+   $('pLink').value=p.link||'';
+   $('formTitle').textContent='Modifier le projet';
+   $('saveProject').textContent='Mettre à jour';
+   form.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  if(del&&confirm('Supprimer définitivement ce projet ?')){
+   const {error}=await db.from('projects').delete().eq('id',del);
+   if(error)alert('Suppression impossible : '+error.message);
+   else await loadAdmin();
+  }
+ });
+
+ /* ---------- Export / Import JSON ---------- */
+ $('exportData').addEventListener('click',()=>{
+  const blob=new Blob([JSON.stringify(projects,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='atelier-toungara-projets.json';
+  a.click();
+  URL.revokeObjectURL(url);
+ });
+
+ $('importData').addEventListener('change',async e=>{
+  const file=e.target.files?.[0];
+  if(!file)return;
+  try{
+   const text=await file.text();
+   const data=JSON.parse(text);
+   if(!Array.isArray(data))throw new Error('Format invalide');
+   if(!confirm(`Importer ${data.length} projet(s) ? Cela s'ajoute à la base existante.`))return;
+   const rows=data.map(p=>({
+    title:p.title,
+    slug:slugify(p.title||'projet'),
+    description:p.description||'',
+    category:p.category||'Autre',
+    status:p.status||'À venir',
+    access_type:p.access||p.access_type||'Gratuit',
+    price_fcfa:Number(p.price||p.price_fcfa)||0,
+    resource_url:p.link||p.resource_url||null,
+    is_published:true
+   }));
+   const {error}=await db.from('projects').insert(rows);
+   if(error)throw error;
+   await loadAdmin();
+  } catch(err){
+   alert('Import impossible : '+err.message);
+  } finally {
+   e.target.value='';
+  }
+ });
+
+ /* ---------- Auth state change ---------- */
+ db.auth.onAuthStateChange((_event,session)=>{
+  if(!session){
+   $('adminLogin').style.display='block';
+   $('adminWorkspace').style.display='none';
+  }
+ });
+
+ /* ---------- Observer reveal ---------- */
+ const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add('visible');
+    revealObserver.unobserve(entry.target);
+   }
+  });
+ },{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+ /* ---------- Boot ---------- */
  loadPublic();
 })();
 </script>
