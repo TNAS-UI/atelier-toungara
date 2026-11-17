@@ -263,7 +263,9 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
  const SUPABASE_URL='https://ppvuwquwqbvabipuplnw.supabase.co';
  const SUPABASE_KEY='sb_publishable_xWn1KHFoZ1xRhxLrq6yjSg_6ukvvvE9';
  const ADMIN_UID='fefc4c67-1593-41ce-b12b-33fec0f0c1be';
- const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+ const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{
+  global:{headers:{apikey:SUPABASE_KEY}}
+});
  const $=id=>document.getElementById(id), overlay=$('adminOverlay'), form=$('projectForm'), list=$('adminProjects');
  let projects=[];
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
