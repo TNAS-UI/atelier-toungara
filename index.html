@@ -80,23 +80,51 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 .filter{border:1px solid var(--line);background:transparent;border-radius:999px;padding:11px 15px;color:#626b60;font-size:11px;cursor:pointer;transition:.2s}
 .filter:hover{border-color:var(--green);color:var(--green)}.filter.active{background:var(--green);color:white;border-color:var(--green)}
 
-/* -------- Cartes publiques enrichies -------- */
+/* ============ CARTES PUBLIQUES (VITRINE) ============ */
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .project{background:var(--white);border:1px solid #e7e5dc;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer;position:relative}
 .project:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d1d7cc}
-.project-cover{height:180px;background:#e5ebe0;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.project-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+
+/* ✅ CADRE FIXE + IMAGE CONTENUE */
+.project-cover{
+  height:180px;
+  width:100%;
+  background:#e5ebe0;
+  position:relative;
+  overflow:hidden;
+  display:block;
+}
+.project-cover img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:transform .5s;
+}
 .project:hover .project-cover img{transform:scale(1.05)}
-.project-cover .fallback{font:700 40px Manrope,sans-serif;color:#fff;opacity:.35}
-.project-cover .video-badge{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.6);color:#fff;padding:4px 9px;border-radius:20px;font:10px 'DM Mono',monospace;display:flex;align-items:center;gap:5px;backdrop-filter:blur(4px)}
+.project-cover .fallback{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font:700 40px Manrope,sans-serif;
+  color:#fff;
+  opacity:.4;
+}
+.project-cover .video-badge{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.6);color:#fff;padding:4px 9px;border-radius:20px;font:10px 'DM Mono',monospace;display:flex;align-items:center;gap:5px;backdrop-filter:blur(4px);z-index:2}
 .project-cover .video-badge:before{content:"▶";font-size:8px}
-.type-badge{position:absolute;left:10px;top:10px;padding:5px 10px;border-radius:5px;font:700 9px 'DM Mono',monospace;letter-spacing:.06em;color:#fff;text-transform:uppercase}
+.type-badge{position:absolute;left:10px;top:10px;padding:5px 10px;border-radius:5px;font:700 9px 'DM Mono',monospace;letter-spacing:.06em;color:#fff;text-transform:uppercase;z-index:2}
 .type-badge.word{background:var(--type-word)}
 .type-badge.ppt{background:var(--type-ppt)}
 .type-badge.excel{background:var(--type-excel)}
 .type-badge.vba{background:var(--type-vba)}
 .type-badge.python{background:var(--type-python)}
 .type-badge.autre{background:#5a6157}
+
 .project-content{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
 .project-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font:9px 'DM Mono',monospace;letter-spacing:.04em}
 .status{padding:4px 8px;border-radius:2px;background:#f4eadc;color:#94613d;white-space:nowrap}
@@ -116,13 +144,39 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 .empty{display:none;grid-column:1/-1;padding:38px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px;font-size:13px}
 .disclaimer{font:10px 'DM Mono',monospace;color:#878d82;margin-top:16px;line-height:1.7}
 
-/* -------- Modal détail projet -------- */
+/* ============ MODAL DÉTAIL (image entière, pas géante) ============ */
 .detail-overlay{position:fixed;inset:0;z-index:70;background:rgba(18,28,21,.78);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .detail-overlay.open{display:flex}
 .detail-modal{background:var(--paper);border-radius:18px;width:min(1000px,100%);margin:auto;overflow:hidden;box-shadow:0 30px 100px #0006;animation:panelIn .3s ease}
-.detail-hero{height:300px;background:#e5ebe0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.detail-hero img{width:100%;height:100%;object-fit:cover}
-.detail-hero video,.detail-hero iframe{width:100%;height:100%;object-fit:contain;background:#000}
+.detail-hero{
+  height:auto;
+  max-height:60vh;
+  background:#e5ebe0;
+  position:relative;
+  overflow:hidden;
+}
+.detail-hero img{
+  width:100%;
+  height:auto;
+  max-height:60vh;
+  object-fit:contain;
+  display:block;
+  margin:auto;
+}
+.detail-hero video{
+  width:100%;
+  height:auto;
+  max-height:60vh;
+  display:block;
+  background:#000;
+  margin:auto;
+}
+.detail-hero iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  display:block;
+}
 .detail-close{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.95);font-size:22px;cursor:pointer;z-index:2;box-shadow:0 4px 12px #0003}
 .detail-body{padding:28px clamp(20px,3vw,38px) 34px}
 .detail-body h2{font-size:clamp(24px,3.5vw,34px);letter-spacing:-.05em;margin:8px 0 12px}
@@ -132,13 +186,13 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 .detail-info small{display:block;font:9px 'DM Mono',monospace;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
 .detail-info b{font:600 13px Manrope,sans-serif;color:var(--ink)}
 .detail-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:20px 0}
-.detail-gallery img{width:100%;height:110px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer;transition:transform .2s}
+.detail-gallery img{width:100%;height:110px;object-fit:cover;object-position:center;border-radius:8px;border:1px solid var(--line);cursor:pointer;transition:transform .2s;display:block}
 .detail-gallery img:hover{transform:scale(1.03)}
 .detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 .detail-actions .button{padding:13px 22px;font-size:13px}
 .detail-actions .price{font:700 18px Manrope,sans-serif;color:var(--green);display:flex;align-items:center;margin-right:auto}
 
-/* -------- Admin -------- */
+/* ============ ADMIN ============ */
 .admin-entry{display:block;border:0;background:none;padding:0;margin-top:10px;color:#aeb5a8;font:11px 'DM Sans',sans-serif;cursor:pointer}
 .admin-entry:hover{color:var(--yellow)}
 .admin-overlay{position:fixed;inset:0;z-index:60;background:rgba(18,28,21,.68);backdrop-filter:blur(7px);display:none;align-items:flex-start;justify-content:center;padding:24px;overflow:auto}
@@ -160,7 +214,8 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 .admin-list-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .admin-list-head span{font:10px 'DM Mono',monospace;color:var(--muted)}
 .admin-project{border-top:1px solid var(--line);padding:11px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.admin-project-thumb{width:48px;height:48px;border-radius:6px;object-fit:cover;background:#eef1e9;flex:none;display:flex;align-items:center;justify-content:center;font-size:18px}
+.admin-project-thumb{width:48px;height:48px;border-radius:6px;object-fit:cover;object-position:center;background:#eef1e9;flex:none;display:flex;align-items:center;justify-content:center;font-size:18px;overflow:hidden}
+.admin-project-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .admin-project-main{flex:1;min-width:0}
 .admin-project strong{display:block;font:600 13px Manrope,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .admin-project small{color:var(--muted);font-size:10px}
@@ -181,7 +236,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 .upload-zone .uz-hint{font-size:10px;color:var(--muted);margin-top:2px}
 .upload-preview{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .upload-preview .thumb{position:relative;width:70px;height:70px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#eee}
-.upload-preview .thumb img{width:100%;height:100%;object-fit:cover}
+.upload-preview .thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .upload-preview .thumb .rm{position:absolute;right:2px;top:2px;background:rgba(0,0,0,.7);color:#fff;border:0;width:18px;height:18px;border-radius:50%;font-size:11px;line-height:1;cursor:pointer;display:grid;place-items:center}
 .upload-file{display:flex;align-items:center;gap:10px;padding:10px;background:#f5f5ee;border-radius:8px;margin-top:8px;font-size:11px}
 .upload-file .ficon{font-size:22px}
@@ -190,7 +245,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 .progress{height:3px;background:#e7e5dc;border-radius:2px;overflow:hidden;margin-top:5px}
 .progress i{display:block;height:100%;background:var(--green);width:0;transition:width .3s}
 
-/* Champs modale détail admin */
+/* Éditeur projet */
 .modal-editor{position:fixed;inset:0;z-index:80;background:rgba(18,28,21,.78);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .modal-editor.open{display:flex}
 .editor-box{background:var(--paper);border-radius:16px;width:min(900px,100%);margin:auto;box-shadow:0 30px 100px #0006;animation:panelIn .3s ease;max-height:92vh;display:flex;flex-direction:column}
@@ -204,7 +259,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 
 @media(max-width:900px){
  .admin-columns{grid-template-columns:1fr}
- .detail-hero{height:220px}
+ .detail-hero{max-height:50vh}
  .detail-body{padding:20px}
 }
 @media(max-width:850px){
@@ -219,6 +274,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  .section{padding:60px 0}
  .admin-overlay{padding:8px}
  .admin-panel{padding:16px}
+ .detail-hero{max-height:45vh}
 }
 </style>
 </head>
@@ -274,7 +330,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 <section class="section"><div class="wrap"><div class="invite reveal" id="contact" style="background:var(--green);color:#fff;padding:55px;border-radius:14px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden"><div><div class="kicker" style="color:var(--yellow)">Restons en contact</div><h2 style="max-width:580px;margin:10px 0 12px">Un projet vous intéresse ? Une idée à partager ?</h2><p style="max-width:550px;color:#d1ddd3;font-size:12px;margin:0">Écrivez-moi. Les retours, les questions et les collaborations font aussi avancer l'atelier.</p></div><a class="button" href="mailto:sidiktoungara@gmail.com?subject=ATELIER%20TOUNGARA%20-%20Prise%20de%20contact" style="background:var(--yellow);border-color:var(--yellow);color:var(--ink);white-space:nowrap">Prendre contact <span class="arrow">↗</span></a></div></div></section>
 </main>
 
-<!-- ============ MODAL DÉTAIL PUBLIC ============ -->
+<!-- MODAL DÉTAIL PUBLIC -->
 <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
  <div class="detail-modal" role="dialog" aria-modal="true">
   <div class="detail-hero" id="detailHero"><button class="detail-close" id="closeDetail" aria-label="Fermer">×</button></div>
@@ -282,7 +338,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  </div>
 </div>
 
-<!-- ============ ADMIN ============ -->
+<!-- ADMIN -->
 <div class="admin-overlay" id="adminOverlay" aria-hidden="true">
  <section class="admin-panel" role="dialog" aria-modal="true">
   <div class="admin-head"><div><div class="kicker">ATELIER TOUNGARA / BACK-OFFICE</div><h2>Espace de gestion</h2><p>Gérez vos projets, images et fichiers depuis cet appareil.</p></div><button class="admin-close" id="closeAdmin" aria-label="Fermer">×</button></div>
@@ -314,7 +370,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  </section>
 </div>
 
-<!-- ============ ÉDITEUR PROJET (modale) ============ -->
+<!-- ÉDITEUR PROJET -->
 <div class="modal-editor" id="editorOverlay" aria-hidden="true">
  <div class="editor-box" role="dialog" aria-modal="true">
   <div class="editor-head">
@@ -457,14 +513,10 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const slugify=v=>v.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
  const fmtSize=b=>!b?'—':b<1024?b+' o':b<1048576?(b/1024).toFixed(1)+' Ko':(b/1048576).toFixed(1)+' Mo';
- const cover = p.cover_url
-  ? `<img src="${esc(p.cover_url)}" alt="${esc(p.title)}" loading="lazy">`
-  : `<div class="fallback">${esc(typeLabel[0]||'A')}</div>`;
- 
+
  let projects=[];
  let editing={cover_url:null,gallery_urls:[],video_url:null,file_url:null,file_name:null,file_size:null};
 
- /* ---------- Mapping ---------- */
  function mapRow(r){
   return {
    id:r.id, title:r.title, description:r.description||'',
@@ -490,7 +542,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   };
  }
 
- /* ---------- Filtrer / rechercher ---------- */
+ /* ---------- Filtres / recherche ---------- */
  let activeFilter='all';
  const search=$('search');
  function updateFilters(){
@@ -521,6 +573,15 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  const TYPE_LABEL={Word:'Word',PowerPoint:'PowerPoint',Excel:'Excel','Excel/VBA':'VBA',Python:'Python',Autre:'Fichier'};
  const STATUS_CLASS=s=>s==='Disponible'?'dispo':(s==='En développement'?'dev':'');
 
+ function coverHTML(p,typeLabel){
+  if(p.cover_url){
+   const letter=esc(typeLabel[0]||'A');
+   return `<img src="${esc(p.cover_url)}" alt="${esc(p.title)}" loading="lazy"
+     onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class=&quot;fallback&quot;>${letter}</div>')">`;
+  }
+  return `<div class="fallback">${esc(typeLabel[0]||'A')}</div>`;
+ }
+
  function renderPublic(){
   const grid=$('projects');
   grid.querySelectorAll('.project.managed-project').forEach(el=>el.remove());
@@ -537,7 +598,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
    const typeClass=TYPE_BADGE[p.project_type]||'autre';
    const typeLabel=TYPE_LABEL[p.project_type]||'Fichier';
    const hasVideo=p.video_url?`<div class="video-badge">Vidéo</div>`:'';
-   const cover=p.cover_url?`<img src="${esc(p.cover_url)}" alt="${esc(p.title)}" loading="lazy">`:`<div class="fallback">${esc(typeLabel[0]||'A')}</div>`;
    const tags=(p.tags||[]).slice(0,3).map(t=>`<span>${esc(t)}</span>`).join('');
    const priceLabel=(p.access==='Payant'&&p.price)?Number(p.price).toLocaleString('fr-FR')+' FCFA':p.access;
    const levelCls=p.level==='Débutant'?'deb':(p.level==='Avancé'?'av':'');
@@ -546,7 +606,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
     <div class="project-cover">
      <span class="type-badge ${typeClass}">${esc(typeLabel)}</span>
      ${hasVideo}
-     ${cover}
+     ${coverHTML(p,typeLabel)}
     </div>
     <div class="project-content">
      <div class="project-meta">
@@ -568,18 +628,16 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   updateFilters();
  }
 
- /* ---------- Modal détail public ---------- */
+ /* ---------- Modal détail ---------- */
  function openDetail(id){
   const p=projects.find(x=>x.id===id);
   if(!p)return;
   const hero=$('detailHero');
-  const oldMedia=hero.querySelector('img,video,iframe');
-  if(oldMedia)oldMedia.remove();
+  hero.querySelectorAll('img,video,iframe').forEach(e=>e.remove());
 
-  // Média du hero : vidéo embed > cover > fallback
-  let mediaHTML='';
   const ytId=extractYouTubeId(p.video_url);
   const vimeoId=extractVimeoId(p.video_url);
+  let mediaHTML='';
   if(ytId){
    mediaHTML=`<iframe src="https://www.youtube.com/embed/${ytId}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
   } else if(vimeoId){
@@ -626,8 +684,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  }
  function closeDetail(){
   $('detailOverlay').classList.remove('open');
-  const hero=$('detailHero');
-  hero.querySelectorAll('img,video,iframe').forEach(e=>e.remove());
+  $('detailHero').querySelectorAll('img,video,iframe').forEach(e=>e.remove());
   document.body.style.overflow='';
  }
  $('closeDetail').addEventListener('click',closeDetail);
@@ -636,12 +693,9 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  function extractYouTubeId(u){if(!u)return null;const m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);return m?m[1]:null}
  function extractVimeoId(u){if(!u)return null;const m=u.match(/vimeo\.com\/(\d+)/);return m?m[1]:null}
 
- /* ---------- Chargement public ---------- */
+ /* ---------- Chargement ---------- */
  async function loadPublic(){
-  const {data,error}=await db.from('projects')
-   .select('*')
-   .eq('is_published',true)
-   .order('updated_at',{ascending:false});
+  const {data,error}=await db.from('projects').select('*').eq('is_published',true).order('updated_at',{ascending:false});
   if(error){console.error('❌',error.message);return}
   console.log('✅ Projets chargés:',data?.length);
   projects=(data||[]).map(mapRow);
@@ -671,7 +725,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   renderPublic();
  }
 
- /* ---------- Liste admin ---------- */
  function renderAdmin(){
   const list=$('adminProjects');
   list.innerHTML='';
@@ -681,7 +734,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
    const row=document.createElement('div');
    row.className='admin-project';
    const thumb=p.cover_url
-    ? `<img class="admin-project-thumb" src="${esc(p.cover_url)}" alt="">`
+    ? `<div class="admin-project-thumb"><img src="${esc(p.cover_url)}" alt=""></div>`
     : `<div class="admin-project-thumb">${TYPE_LABEL[p.project_type]?.[0]||'•'}</div>`;
    row.innerHTML=`
     ${thumb}
@@ -751,7 +804,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
     const p=projects.find(x=>x.id===del);
     const {error}=await db.from('projects').delete().eq('id',del);
     if(error){alert(error.message);return}
-    // Supprimer aussi les fichiers Storage associés
     if(p){
      const files=[];
      if(p.cover_url)files.push({bucket:BUCKET_COVERS,url:p.cover_url});
@@ -788,7 +840,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   return publicUrl;
  }
 
- /* Couverture */
  $('coverZone').addEventListener('click',()=>$('coverInput').click());
  $('coverZone').addEventListener('dragover',e=>{e.preventDefault();$('coverZone').classList.add('drag')});
  $('coverZone').addEventListener('dragleave',()=>$('coverZone').classList.remove('drag'));
@@ -812,7 +863,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   el.appendChild(thumb);
  }
 
- /* Galerie */
  $('galleryZone').addEventListener('click',()=>$('galleryInput').click());
  $('galleryInput').addEventListener('change',async e=>{
   const files=[...e.target.files];
@@ -837,7 +887,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   });
  }
 
- /* Vidéo */
  $('videoZone').addEventListener('click',()=>$('videoInput').click());
  $('videoInput').addEventListener('change',async e=>{
   const f=e.target.files[0];if(!f)return;
@@ -847,7 +896,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   e.target.value='';
  });
 
- /* Fichier */
  $('fileZone').addEventListener('click',()=>$('fileInput').click());
  $('fileZone').addEventListener('dragover',e=>{e.preventDefault();$('fileZone').classList.add('drag')});
  $('fileZone').addEventListener('dragleave',()=>$('fileZone').classList.remove('drag'));
@@ -948,7 +996,7 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   e.target.value='';
  });
 
- /* ---------- Ouverture admin ---------- */
+ /* ---------- Admin ---------- */
  $('openAdmin').addEventListener('click',()=>{
   $('adminOverlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -978,7 +1026,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
   }
  });
 
- /* ---------- Boot ---------- */
  loadPublic();
 })();
 </script>
