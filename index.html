@@ -457,7 +457,10 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const slugify=v=>v.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
  const fmtSize=b=>!b?'—':b<1024?b+' o':b<1048576?(b/1024).toFixed(1)+' Ko':(b/1048576).toFixed(1)+' Mo';
-
+ const cover = p.cover_url
+  ? `<img src="${esc(p.cover_url)}" alt="${esc(p.title)}" loading="lazy">`
+  : `<div class="fallback">${esc(typeLabel[0]||'A')}</div>`;
+ 
  let projects=[];
  let editing={cover_url:null,gallery_urls:[],video_url:null,file_url:null,file_name:null,file_size:null};
 
