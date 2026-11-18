@@ -630,7 +630,6 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 
  /* ---------- Modal détail ---------- */
  function openDetail(id){
-  $('detailBody').innerHTML = `
   const p=projects.find(x=>x.id===id);
   if(!p)return;
   const hero=$('detailHero');
@@ -652,62 +651,14 @@ h2{font:600 clamp(32px,4vw,47px)/1.1 Manrope,sans-serif;letter-spacing:-.065em;m
 
   const typeLabel=TYPE_LABEL[p.project_type]||'Fichier';
   const priceLabel=(p.access==='Payant'&&p.price)?Number(p.price).toLocaleString('fr-FR')+' FCFA':p.access;
-  const downloadBtn = p.file_url
-  ? `<button class="button dark" type="button" id="downloadProjectFile">
-       ⬇ Télécharger ${esc(p.file_name || 'le fichier')}
-     </button>`
-  : (p.link
-      ? `<a class="button dark" href="${esc(p.link)}" target="_blank" rel="noopener">
-           Ouvrir le lien ↗
-         </a>`
-      : '');
+  const downloadBtn=p.file_url
+   ? `<a class="button dark" href="${esc(p.file_url)}" target="_blank" rel="noopener" download>⬇ Télécharger ${esc(p.file_name||'le fichier')}</a>`
+   : (p.link?`<a class="button dark" href="${esc(p.link)}" target="_blank" rel="noopener">Ouvrir le lien ↗</a>`:'');
 
   const gallery=(p.gallery_urls||[]).length
    ? `<div class="detail-gallery">${p.gallery_urls.map(u=>`<img src="${esc(u)}" loading="lazy" onclick="window.open('${esc(u)}','_blank')">`).join('')}</div>`
    : '';
-const downloadButton = $('downloadProjectFile');
 
-if (downloadButton) {
-  downloadButton.addEventListener('click', async () => {
-    downloadButton.disabled = true;
-    downloadButton.textContent = 'Téléchargement en cours…';
-
-    try {
-      const path = extractPath(p.file_url, BUCKET_FILES);
-
-      if (!path) {
-        throw new Error(
-          "Impossible de retrouver le chemin du fichier dans project-files."
-        );
-      }
-
-      const { data, error } = await db.storage
-        .from(BUCKET_FILES)
-        .download(path);
-
-      if (error) throw error;
-
-      const blobUrl = URL.createObjectURL(data);
-      const link = document.createElement('a');
-
-      link.href = blobUrl;
-      link.download = p.file_name || 'fichier';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-
-      setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
-
-    } catch (error) {
-      console.error('Erreur téléchargement :', error);
-      alert('Le téléchargement a échoué : ' + error.message);
-    } finally {
-      downloadButton.disabled = false;
-      downloadButton.innerHTML =
-        '⬇ Télécharger ' + (p.file_name || 'le fichier');
-    }
-  });
-}
   $('detailBody').innerHTML=`
    <div class="kicker" style="color:var(--orange)">${esc(typeLabel)} · ${esc(p.category)}</div>
    <h2>${esc(p.title)}</h2>
@@ -731,7 +682,6 @@ if (downloadButton) {
   $('detailOverlay').classList.add('open');
   document.body.style.overflow='hidden';
  }
- $('detailOverlay').classList.add('open');
  function closeDetail(){
   $('detailOverlay').classList.remove('open');
   $('detailHero').querySelectorAll('img,video,iframe').forEach(e=>e.remove());
