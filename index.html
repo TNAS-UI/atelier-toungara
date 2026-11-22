@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#04131f">
+<title>Sidik Toungara — Projets & outils</title>
+<meta name="description" content="Des outils Excel, VBA, Python et des projets numériques conçus pour être utiles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04131f;--bg2:#071e2c;--panel:#0a2635;--panel2:#0d3040;--ink:#e8f5f5;--muted:#9bb8bd;--teal:#39c6bd;--aqua:#8ce5df;--blue:#398db2;--line:rgba(140,229,223,.15);--gold:#e5c58b;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 15% 8%,rgba(26,111,130,.25),transparent 38%),radial-gradient(ellipse at 85% 48%,rgba(23,89,125,.2),transparent 42%),linear-gradient(160deg,#061a28,#03101a 70%);pointer-events:none}
+a{color:inherit}.shell{width:min(1160px,calc(100% - 48px));margin:auto;position:relative;z-index:1}
+header{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 19px Manrope,sans-serif;letter-spacing:-.04em}.brand-mark{width:37px;height:37px;border-radius:13px;background:linear-gradient(145deg,var(--aqua),#167b89);display:grid;place-items:center;color:#05202a;font-weight:800;box-shadow:0 7px 28px #39c6bd35}
+nav{display:flex;gap:30px;align-items:center}nav a{text-decoration:none;color:var(--muted);font-size:14px;transition:.25s}nav a:hover{color:var(--aqua)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 12px}
+.hero{min-height:650px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;padding:75px 0 100px;position:relative}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--aqua);font-size:12px;text-transform:uppercase;letter-spacing:.17em;font-weight:700}.eyebrow:before{content:"";width:27px;height:1px;background:var(--teal)}
+h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.045em}h1{font-size:clamp(43px,6.1vw,76px);line-height:1.06;margin:20px 0 23px;font-weight:700;max-width:730px}h1 span{color:var(--aqua)}
+.hero-copy{max-width:580px;color:#b4cbd0;font-size:18px;line-height:1.8}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:999px;padding:13px 21px;text-decoration:none;font:700 14px "DM Sans";cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px)}.btn-primary{background:linear-gradient(110deg,#8ce5df,#39bcb8);color:#04202a;box-shadow:0 12px 32px #39c6bd28}.btn-primary:hover{box-shadow:0 16px 40px #39c6bd48}.btn-ghost{border-color:var(--line);color:var(--ink);background:#ffffff05}.btn-small{padding:9px 15px;font-size:13px}
+.hero-art{height:440px;position:relative;display:grid;place-items:center;perspective:900px}
+.orbit{position:absolute;border:1px solid rgba(140,229,223,.16);border-radius:50%;transform:rotate(-24deg)}.orbit.one{width:390px;height:220px;animation:orbit 18s linear infinite}.orbit.two{width:300px;height:360px;transform:rotate(38deg);animation:orbit2 22s linear infinite}
+@keyframes orbit{to{transform:rotate(336deg)}}@keyframes orbit2{to{transform:rotate(398deg)}}
+.glass-card{width:min(330px,82%);padding:26px;border:1px solid #9de9e32b;border-radius:27px;background:linear-gradient(145deg,#144052d9,#082332e8);box-shadow:0 35px 90px #0008,inset 0 1px #ffffff20;transform:rotateY(-10deg) rotateX(5deg);animation:float 6s ease-in-out infinite;backdrop-filter:blur(15px)}
+@keyframes float{50%{transform:translateY(-13px) rotateY(-7deg) rotateX(3deg)}}
+.card-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.live-dot{width:7px;height:7px;background:#55d9ad;border-radius:50%;display:inline-block;box-shadow:0 0 14px #55d9ad;margin-right:7px}
+.chart{height:130px;margin:24px 0 15px;position:relative;border-bottom:1px solid #ffffff1a;background:repeating-linear-gradient(to bottom,transparent 0 31px,#ffffff0b 32px)}
+.chart svg{width:100%;height:100%;overflow:visible}.metric{display:flex;justify-content:space-between;align-items:end}.metric strong{font:700 29px Manrope}.metric span{font-size:12px;color:var(--aqua)}
+.float-tag{position:absolute;padding:11px 15px;border:1px solid var(--line);border-radius:14px;background:#0b2b3ae8;backdrop-filter:blur(12px);font-size:12px;color:#c6e1e3;box-shadow:0 15px 35px #0005}.tag-a{top:58px;right:0;animation:float 7s ease-in-out infinite}.tag-b{bottom:54px;left:0;animation:float 8s ease-in-out infinite reverse}
+.hero-glow{position:absolute;width:340px;height:340px;border-radius:50%;background:#1a9caa20;filter:blur(65px);z-index:-1}
+.scroll-note{position:absolute;bottom:24px;left:0;color:#6f969e;font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:12px}.scroll-note:before{content:"";height:1px;width:36px;background:var(--teal)}
+.section{padding:92px 0}.section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:30px}.section-kicker{color:var(--teal);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+h2{font-size:clamp(32px,4vw,48px);line-height:1.12;margin:9px 0 12px}.section-intro{color:var(--muted);max-width:520px;margin:0}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:28px 0 27px}.filter{border:1px solid var(--line);background:transparent;color:#a9c4c8;padding:9px 16px;border-radius:99px;font:600 13px "DM Sans";cursor:pointer;transition:.25s}.filter:hover,.filter.active{background:#123e4b;border-color:#39c6bd80;color:var(--aqua)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+.project{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#0b2938d9,#071d2bd9);transition:transform .35s,border-color .35s,box-shadow .35s;opacity:0;transform:translateY(25px)}.project.visible{opacity:1;transform:translateY(0)}.project:hover{transform:translateY(-7px);border-color:#66d8d080;box-shadow:0 24px 55px #0005}
+.cover{height:190px;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 20%,#42c7bd70,transparent 35%),linear-gradient(135deg,#14536a,#0a2739);display:flex;align-items:end;padding:17px}.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#03121dd9,transparent 65%)}.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}.project:hover .cover img{transform:scale(1.06)}
+.cover-mark{position:relative;z-index:1;font:700 14px Manrope;letter-spacing:.08em;text-transform:uppercase;color:#d5f7f3}.project-content{padding:20px;display:flex;flex-direction:column;min-height:225px}.project-meta{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#82a9ae;text-transform:uppercase;letter-spacing:.08em}.status{color:#79d9b7}.status.wip{color:var(--gold)}.status.soon{color:#9bb9ed}.project h3{font-size:20px;margin:14px 0 8px}.project p{color:var(--muted);font-size:14px;line-height:1.7;margin:0 0 19px;flex:1}.project-link{align-self:flex-start}
+.empty{padding:35px 0;color:var(--muted)}
+.about{display:grid;grid-template-columns:.7fr 1.3fr;gap:65px;align-items:start;border-top:1px solid var(--line);padding-top:70px}.about-aside{position:sticky;top:110px}.about-copy{color:#b5cbd0;font-size:17px;line-height:1.9}.about-copy p{margin:0 0 19px}.about-note{border-left:2px solid var(--teal);padding:13px 0 13px 18px;color:var(--aqua);font-size:14px;margin-top:28px}
+.contact{margin:70px 0 95px;padding:45px;border:1px solid var(--line);border-radius:26px;background:radial-gradient(circle at 90% 10%,#1d71804a,transparent 40%),linear-gradient(120deg,#0d3040,#082131)}.contact h2{max-width:620px}.contact p{color:var(--muted);max-width:560px}
+footer{border-top:1px solid #ffffff10;padding:25px 0 35px;color:#75969c;font-size:12px;display:flex;justify-content:space-between;gap:15px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}
+#bubbles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48}
+.admin-trigger{position:fixed;right:18px;bottom:18px;z-index:10;background:#0b2b39dd;border:1px solid var(--line);color:#9cc6c9;border-radius:99px;padding:10px 15px;font-size:12px;cursor:pointer;backdrop-filter:blur(12px)}
+.modal{display:none;position:fixed;inset:0;z-index:30;background:#020b12d9;backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.admin-box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#082131;border:1px solid #4ebbb44d;border-radius:22px;padding:25px;box-shadow:0 35px 100px #0009}.admin-head{display:flex;justify-content:space-between;align-items:center;gap:15px}.admin-head h3{font-size:24px;margin:0}.close{background:#ffffff0b;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
+.field{margin:14px 0}.field label{display:block;color:#a9c7cb;font-size:12px;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;background:#041823;border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:12px;font:14px "DM Sans"}.field textarea{min-height:90px;resize:vertical}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.admin-list{margin-top:25px;border-top:1px solid var(--line)}.admin-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #ffffff0c;font-size:13px}.admin-actions{display:flex;gap:7px}.notice{font-size:12px;color:#d8bd86;background:#6a51251c;border:1px solid #d8bd8638;border-radius:10px;padding:11px 13px;line-height:1.6}.hidden{display:none!important}
+@media(max-width:850px){.hero{grid-template-columns:1fr;min-height:auto;padding:75px 0 100px}.hero-art{height:380px}.project-grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:20px}.about-aside{position:static}.section-head{display:block}.section-intro{margin-top:10px}}
+@media(max-width:600px){.shell{width:min(100% - 34px,1160px)}header{height:72px}nav{display:none;position:absolute;top:70px;right:0;left:0;padding:18px;background:#082131;border:1px solid var(--line);border-radius:14px;flex-direction:column;align-items:flex-start;gap:17px}nav.open{display:flex}.menu-btn{display:block}.hero{padding:60px 0 80px}.hero-art{height:330px}.orbit.one{width:300px}.orbit.two{height:300px}.tag-a{right:-4px;top:28px}.tag-b{left:-4px;bottom:25px}.section{padding:65px 0}.project-grid{grid-template-columns:1fr}.cover{height:205px}.contact{padding:28px 22px;margin:40px 0 65px}.field-row{grid-template-columns:1fr}footer{flex-direction:column}.scroll-note{bottom:17px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal,.project{opacity:1;transform:none}}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<canvas id="bubbles" aria-hidden="true"></canvas>
+<div class="shell">
+<header>
+  <a class="brand" href="#"><span class="brand-mark">S.</span><span>Sidik Toungara</span></a>
+  <nav id="nav"><a href="#projets">Les projets</a><a href="#demarche">À propos</a><a href="#contact">Me contacter</a></nav>
+  <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Finance · Data · Création</div>
+    <h1>Des idées qui deviennent des <span>outils utiles.</span></h1>
+    <p class="hero-copy">Bienvenue dans mon espace. J’y rassemble les projets que je construis autour d’Excel, de la finance, de la data et du numérique. Des outils concrets, imaginés pour apprendre, comprendre et gagner du temps.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="#projets">Explorer les projets <span>↗</span></a><a class="btn btn-ghost" href="#demarche">Faire connaissance</a></div>
+  </div>
+  <div class="hero-art" aria-label="Illustration abstraite de données">
+    <div class="hero-glow"></div><div class="orbit one"></div><div class="orbit two"></div>
+    <div class="glass-card">
+      <div class="card-top"><span><i class="live-dot"></i>ESPACE DE CRÉATION</span><span>01 / 04</span></div>
+      <div class="chart"><svg viewBox="0 0 300 130" preserveAspectRatio="none"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#63d9d0" stop-opacity=".38"/><stop offset="1" stop-color="#63d9d0" stop-opacity="0"/></linearGradient></defs><path d="M0 105 C28 95 38 108 65 78 S105 88 130 58 S170 75 194 40 S235 55 255 22 S280 35 300 8 V130 H0Z" fill="url(#area)"/><path d="M0 105 C28 95 38 108 65 78 S105 88 130 58 S170 75 194 40 S235 55 255 22 S280 35 300 8" fill="none" stroke="#78e0d7" stroke-width="3" stroke-linecap="round"/></svg></div>
+      <div class="metric"><div><strong>Créer.</strong><br><span style="color:#9bb8bd;font-size:12px">Tester. Améliorer.</span></div><span>EN MOUVEMENT ↗</span></div>
+    </div>
+    <div class="float-tag tag-a">⌁ &nbsp; Excel & automatisation</div><div class="float-tag tag-b">◈ &nbsp; Finance & data</div>
+  </div>
+  <div class="scroll-note">Prenez le temps d’explorer</div>
+</section>
+
+<section class="section" id="projets">
+  <div class="section-head reveal"><div><div class="section-kicker">Le laboratoire</div><h2>Quelques projets en cours<br>et déjà disponibles.</h2></div><p class="section-intro">Chaque projet part d’une idée ou d’un besoin réel. Certains sont prêts à être utilisés, d’autres évoluent encore. Voici ce qui se construit.</p></div>
+  <div class="filters" id="filters"></div>
+  <div class="project-grid" id="projectGrid"></div>
+</section>
+
+<section class="section about" id="demarche">
+  <div class="about-aside reveal"><div class="section-kicker">Derrière les outils</div><h2>Un peu de méthode, beaucoup de curiosité.</h2></div>
+  <div class="about-copy reveal">
+    <p>Je suis Sidik Toungara, diplômé d’un master en sciences actuarielles. J’aime comprendre comment les choses fonctionnent, puis chercher comment les rendre plus simples et plus efficaces.</p>
+    <p>Au quotidien, je vois à quel point un bon fichier Excel, une automatisation bien pensée ou une visualisation claire peuvent faire gagner du temps et aider à prendre de meilleures décisions.</p>
+    <p>Je partage ici mes expérimentations : des outils pour apprendre, des tableaux de bord pour mieux lire les données, des simulations pour explorer des scénarios. Ils sont d’abord conçus pour répondre à un besoin concret, puis améliorés au fil des retours.</p>
+    <div class="about-note">Un projet vous intéresse, vous avez une idée ou une remarque ? Je serai ravi d’en discuter.</div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <div class="section-kicker">Et maintenant ?</div><h2>Une idée à transformer en quelque chose de concret ?</h2>
+  <p>Une suggestion, une collaboration ou simplement envie d’échanger autour d’un projet : la conversation est ouverte.</p>
+  <a class="btn btn-primary" href="mailto:sidiktoungara@gmail.com?subject=Discussion%20autour%20de%20vos%20projets">Entrer en contact ↗</a>
+  <p style="margin-top:16px;font-size:14px">Ou écrivez-moi directement : <a href="mailto:sidiktoungara@gmail.com" style="color:var(--aqua)">sidiktoungara@gmail.com</a></p>
+</section>
+</main>
+<footer><span>© <span id="year"></span> Sidik Toungara · Abidjan</span><span>Conçu avec curiosité, peaufiné avec patience.</span></footer>
+</div>
+
+<button class="admin-trigger" id="adminTrigger" hidden>⚙ Administration</button>
+<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+ <div class="admin-box">
+  <div class="admin-head"><h3 id="adminTitle">Espace administration</h3><button class="close" id="closeAdmin">Fermer ✕</button></div>
+  <div id="loginArea">
+   <p style="color:var(--muted);font-size:14px">Espace réservé à l’administrateur.</p>
+   <div class="field"><label for="adminEmail">E-mail</label><input type="email" id="adminEmail" autocomplete="username"></div>
+   <div class="field"><label for="adminPassword">Mot de passe</label><input type="password" id="adminPassword" autocomplete="current-password"></div>
+   <button class="btn btn-primary" id="loginBtn" type="button">Se connecter</button>
+  </div>
+  <div id="dashboard" class="hidden">
+   <div class="notice">Connecté. Chaque enregistrement est visible tout de suite par les visiteurs. Vous pouvez joindre un fichier (jusqu’à 50 Mo) ou coller un lien Drive, OneDrive ou autre.</div>
+   <form id="projectForm">
+    <input type="hidden" id="editId">
+    <div class="field"><label for="pTitle">Nom du projet *</label><input id="pTitle" required maxlength="90" placeholder="Ex. Tableau de bord financier"></div>
+    <div class="field"><label for="pDesc">Description</label><textarea id="pDesc" maxlength="400" placeholder="À quoi sert ce projet ?"></textarea></div>
+    <div class="field-row">
+     <div class="field"><label for="pType">Type de projet</label><select id="pType"><option value="excel">Excel / VBA</option><option value="word">Word</option><option value="ppt">PowerPoint</option><option value="python">Python</option><option value="web">Site web</option><option value="autre">Autre</option></select></div>
+     <div class="field"><label for="pStatus">État</label><select id="pStatus"><option value="dispo">Disponible</option><option value="cours">En cours</option><option value="venir">À venir</option></select></div>
+    </div>
+    <div class="field"><label for="pLink">Lien du projet ou du fichier (Drive, OneDrive, GitHub, site…)</label><input id="pLink" type="url" placeholder="https://…"></div>
+    <div class="field"><label for="pCover">Image de couverture</label><input id="pCover" type="file" accept="image/*"></div>
+    <div class="field"><label for="pFile">Fichier à joindre (facultatif)</label><input id="pFile" type="file"><small style="color:var(--muted)">Tous formats (Excel, VBA, Word, PowerPoint, Python…), jusqu’à 50 Mo.</small></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:18px"><button class="btn btn-primary" type="submit">Enregistrer le projet</button><button class="btn btn-ghost" type="button" id="resetForm">Réinitialiser</button><button class="btn btn-ghost" type="button" id="logoutBtn">Déconnexion</button></div>
+   </form>
+   <div class="admin-list" id="adminList"></div>
+  </div>
+ </div>
+</div>
+<div id="toast" style="position:fixed;left:50%;bottom:85px;transform:translateX(-50%);z-index:50;background:#8ce5df;color:#04202a;padding:10px 18px;border-radius:99px;font-size:13px;font-weight:700;display:none"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+const types={excel:"Excel / VBA",word:"Word",ppt:"PowerPoint",python:"Python",web:"Site web",autre:"Autre"};
+const statuses={dispo:"Disponible",cours:"En cours",venir:"À venir"};
+const initial=[
+ {id:"p1",title:"EXCEL ACADEMY",desc:"Un jeu pour apprendre Excel en s’amusant : une ambiance d’open space et des exercices par niveau.",kind:"excel",status:"cours",link:"",cover:""},
+ {id:"p2",title:"Cashflow UEMOA",desc:"Un jeu d’éducation financière inspiré de Cashflow, adapté à nos réalités et au FCFA.",kind:"excel",status:"cours",link:"",cover:""},
+ {id:"p3",title:"Marché des titres publics",desc:"Un tableau de bord pour suivre les BAT et OAT de l’UMOA.",kind:"excel",status:"cours",link:"",cover:""},
+ {id:"p4",title:"Simulation : gouverneur de la BCEAO",desc:"Prenez la place du gouverneur et pilotez la politique monétaire de l’UMOA.",kind:"excel",status:"venir",link:"",cover:""},
+ {id:"p5",title:"Analyse financière assistée par IA",desc:"Un outil Excel qui rédige l’analyse financière d’une entreprise à partir de ses états financiers.",kind:"excel",status:"venir",link:"",cover:""}
+];
+function toast(s){const el=document.getElementById("toast");el.textContent=s;el.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display="none",2800)}
+function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderFilters(){const options=[["all","Tous"],["dispo","Disponibles"],["cours","En cours"],["venir","À venir"]];document.getElementById("filters").innerHTML=options.map(([k,v])=>`<button class="filter ${activeFilter===k?"active":""}" data-filter="${k}">${v}</button>`).join("");document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;renderFilters();renderProjects()}))}
+function renderProjects(){
+ const list=projects.filter(p=>activeFilter==="all"||p.status===activeFilter);
+ const grid=document.getElementById("projectGrid");
+ grid.innerHTML=list.length?list.map(p=>`<article class="project"><div class="cover">${safe(p.cover)?`<img src="${esc(safe(p.cover))}" alt="Couverture de ${esc(p.title)}" loading="lazy">`:""}<span class="cover-mark">${esc(types[p.kind]||"Projet")}</span></div><div class="project-content"><div class="project-meta"><span>${esc(types[p.kind]||"Autre")}</span><span class="status ${p.status==="cours"?"wip":p.status==="venir"?"soon":""}">${statuses[p.status]||""}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>${p.file&&safe(p.file.url)?`<a class="btn btn-primary btn-small project-link" href="${esc(safe(p.file.url))}?download=${encodeURIComponent(p.file.name)}">Télécharger ↓</a>`:safe(p.link)?`<a class="btn btn-primary btn-small project-link" href="${esc(safe(p.link))}" target="_blank" rel="noopener">${p.kind==="web"?"Visiter le site":"Accéder au projet"} ↗</a>`:`<span class="btn btn-ghost btn-small project-link" style="opacity:.55;cursor:default">${p.status==="venir"?"Bientôt disponible":"Lien à venir"}</span>`}</div></article>`).join(""):`<p class="empty">Aucun projet dans cette catégorie pour le moment.</p>`;
+ observeReveals();
+}
+
+function observeReveals(){const els=document.querySelectorAll(".reveal:not(.visible),.project:not(.visible)");if(!("IntersectionObserver"in window)){els.forEach(e=>e.classList.add("visible"));return}const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target)}}),{threshold:.12});els.forEach(e=>io.observe(e))}
+function openAdmin(){document.getElementById("adminModal").classList.add("open");document.body.style.overflow="hidden"}
+function closeAdmin(){document.getElementById("adminModal").classList.remove("open");document.body.style.overflow=""}
+function resetForm(){document.getElementById("projectForm").reset();document.getElementById("editId").value="";document.getElementById("pFile").value="";document.getElementById("pCover").value=""}
+function renderAdminList(){const el=document.getElementById("adminList");el.innerHTML="<h4 style='font:700 15px Manrope;color:#d8eeee'>Projets enregistrés ("+projects.length+")</h4>"+projects.map(p=>`<div class="admin-item"><span>${esc(p.title)} <small style="color:#83a9ae">· ${esc(types[p.kind])}</small></span><span class="admin-actions"><button class="btn btn-ghost btn-small" data-edit="${esc(p.id)}">Modifier</button><button class="btn btn-ghost btn-small" data-delete="${esc(p.id)}">Supprimer</button></span></div>`).join("");
+ el.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editProject(b.dataset.edit));el.querySelectorAll("[data-delete]").forEach(b=>b.onclick=async()=>{if(b.dataset.arm!=="1"){b.dataset.arm="1";b.textContent="Confirmer ?";return}await del(b.dataset.delete)})}
+
+function editProject(id){const p=projects.find(x=>x.id===id);if(!p)return;document.getElementById("editId").value=p.id;document.getElementById("pTitle").value=p.title;document.getElementById("pDesc").value=p.desc;document.getElementById("pType").value=p.kind;document.getElementById("pStatus").value=p.status;document.getElementById("pLink").value=p.link||"";document.getElementById("projectForm").scrollIntoView({behavior:"smooth",block:"start"})}
+const SUPABASE_URL="COLLEZ_ICI_L_URL_DU_PROJET";
+const SUPABASE_KEY="COLLEZ_ICI_LA_CLE_ANON";
+const BUCKET="site-files";
+const $=i=>document.getElementById(i);
+const sb=(!SUPABASE_URL.startsWith("COLLEZ")&&typeof supabase!=="undefined")?supabase.createClient(SUPABASE_URL,SUPABASE_KEY):null;
+const safe=u=>/^https?:\/\//.test(u||"")?u:"";
+let projects=initial.slice(),activeFilter="all";
+const rowToP=r=>({id:r.id,title:r.title,desc:r.description||"",kind:r.kind,status:r.status,link:r.link||"",cover:r.cover_url||"",file:r.file_url?{url:r.file_url,name:r.file_name||"fichier"}:null});
+async function load(){if(!sb)return;const {data,error}=await sb.from("projects").select("*").order("created_at",{ascending:false});if(error){toast("Chargement impossible");return}projects=data.map(rowToP);renderProjects();if(!$("dashboard").classList.contains("hidden"))renderAdminList()}
+const slug=n=>n.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-zA-Z0-9._-]+/g,"-");
+async function up(f){const path=Date.now()+"-"+slug(f.name);const {error}=await sb.storage.from(BUCKET).upload(path,f,{contentType:f.type||"application/octet-stream"});if(error)throw error;return sb.storage.from(BUCKET).getPublicUrl(path).data.publicUrl}
+const pathOf=u=>u&&u.includes("/"+BUCKET+"/")?decodeURIComponent(u.split("/"+BUCKET+"/")[1].split("?")[0]):null;
+async function del(id){const p=projects.find(x=>x.id===id);if(!p)return;const paths=[pathOf(p.cover),p.file&&pathOf(p.file.url)].filter(Boolean);const {error}=await sb.from("projects").delete().eq("id",id);if(error){toast(error.message);return}if(paths.length)await sb.storage.from(BUCKET).remove(paths);await load();toast("Projet supprimé")}
+$("projectForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(!sb){toast("Base de données non configurée");return}
+ const id=$("editId").value,old=projects.find(p=>p.id===id)||{},cf=$("pCover").files[0],ff=$("pFile").files[0],btn=e.submitter;
+ if(btn)btn.disabled=true;toast("Enregistrement…");
+ try{
+  let cover=old.cover||null,fu=old.file?old.file.url:null,fn=old.file?old.file.name:null;
+  if(cf)cover=await up(cf);
+  if(ff){fu=await up(ff);fn=ff.name}
+  const row={title:$("pTitle").value.trim(),description:$("pDesc").value.trim(),kind:$("pType").value,status:$("pStatus").value,link:$("pLink").value.trim()||null,cover_url:cover,file_url:fu,file_name:fn};
+  const {error}=await(id?sb.from("projects").update(row).eq("id",id):sb.from("projects").insert(row));
+  if(error)throw error;
+  resetForm();await load();toast("Projet enregistré");
+ }catch(err){toast(err.message||"Échec de l’enregistrement")}finally{if(btn)btn.disabled=false}
+});
+async function showSession(){
+ if(!sb)return;const {data}=await sb.auth.getSession();const on=!!data.session;
+ $("adminTrigger").hidden=!on&&location.hash!=="#admin";
+ $("loginArea").classList.toggle("hidden",on);$("dashboard").classList.toggle("hidden",!on);
+ if(on)renderAdminList();
+}
+$("loginBtn").onclick=async()=>{if(!sb){toast("Base de données non configurée");return}const {error}=await sb.auth.signInWithPassword({email:$("adminEmail").value.trim(),password:$("adminPassword").value});if(error){toast("Identifiants incorrects");return}$("adminPassword").value="";await showSession();await load()};
+$("logoutBtn").onclick=async()=>{if(sb)await sb.auth.signOut();resetForm();await showSession()};
+addEventListener("hashchange",()=>{showSession();if(location.hash==="#admin")openAdmin()});
+document.getElementById("adminTrigger").onclick=openAdmin;document.getElementById("closeAdmin").onclick=closeAdmin;
+document.getElementById("adminModal").addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdmin()});
+document.getElementById("resetForm").onclick=resetForm;
+document.getElementById("menuBtn").onclick=()=>document.getElementById("nav").classList.toggle("open");
+document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>document.getElementById("nav").classList.remove("open"));
+document.getElementById("year").textContent=new Date().getFullYear();
+renderFilters();renderProjects();observeReveals();load();showSession();if(location.hash==="#admin")openAdmin();
+
+/* Particules aquatiques discrètes : désactivées si l'utilisateur préfère moins d'animations. */
+(()=>{const c=document.getElementById("bubbles"),ctx=c.getContext("2d");if(!ctx||matchMedia("(prefers-reduced-motion: reduce)").matches)return;let w,h,particles=[];function resize(){w=c.width=innerWidth;h=c.height=innerHeight;particles=Array.from({length:Math.min(42,Math.floor(w/28))},()=>({x:Math.random()*w,y:Math.random()*h,r:1+Math.random()*3,v:.18+Math.random()*.45,o:.12+Math.random()*.2}))}function draw(){ctx.clearRect(0,0,w,h);for(const p of particles){p.y-=p.v;if(p.y< -8){p.y=h+8;p.x=Math.random()*w}ctx.beginPath();ctx.arc(p.x+Math.sin(p.y*.009)*5,p.y,p.r,0,Math.PI*2);ctx.strokeStyle=`rgba(140,229,223,${p.o})`;ctx.stroke()}requestAnimationFrame(draw)}resize();addEventListener("resize",resize);draw()})();
+</script>
+</body>
+</html>
